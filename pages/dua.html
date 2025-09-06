@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeHub | Monetize Your Design Skills</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles & Variables */
+        :root {
+            --primary: #6C63FF;
+            --secondary: #4A40E5;
+            --accent: #FF6584;
+            --light: #F8F9FA;
+            --dark: #212529;
+            --gray: #6C757D;
+            --success: #2ECC71;
+            --warning: #FF9E1A;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --radius: 10px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            scroll-behavior: smooth;
+            padding-top: 80px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius);
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--accent);
+        }
+
+        .btn-accent:hover {
+            background: #e04a6d;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-warning {
+            background: var(--warning);
+        }
+
+        .btn-warning:hover {
+            background: #e08912;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: var(--secondary);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header */
+        header {
+            background: white;
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+            border-radius: 0 0 var(--radius) var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .income-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Tabs Navigation */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            background: white;
+            border-radius: var(--radius);
+            padding: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            border-radius: var(--radius);
+            margin: 5px;
+        }
+
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab-btn:hover:not(.active) {
+            background: #f1f1f1;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(58, 12, 163, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-item:hover .portfolio-img {
+            transform: scale(1.1);
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            padding: 20px;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 15px;
+        }
+
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        /* Affiliate Section */
+        .affiliate {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .affiliate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .affiliate-card {
+            padding: 25px;
+            text-align: center;
+            position: relative;
+        }
+
+        .affiliate-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--warning);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .affiliate-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* YouTube Section */
+        .youtube-section {
+            background: linear-gradient(135deg, #4A40E5 0%, #6C63FF 100%);
+            color: white;
+        }
+
+        .youtube-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .youtube-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .youtube-stat {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+        }
+
+        .youtube-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .blog-card {
+            padding: 0;
+        }
+
+        .blog-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 20px;
+        }
+
+        .blog-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .affiliate-tag {
+            display: inline-block;
+            background: var(--warning);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        /* Hire Me Section */
+        .hire-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hire-form {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #f8f9fa;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            padding: 30px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "";
+            font-size: 5rem;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ddd;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Time Tracker */
+        .time-tracker {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 999;
+            font-weight: 600;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Resume Popup Button */
+        .resume-popup {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .resume-btn {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .resume-btn:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        /* Thank You Popup */
+        .thankyou-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .thankyou-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .thankyou-content {
+            background: white;
+            padding: 40px;
+            border-radius: var(--radius);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+
+            .hire-content,
+            .youtube-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .income-stats {
+                gap: 20px;
+            }
+
+            .stat-item {
+                min-width: 160px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .youtube-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .time-tracker {
+                top: 70px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .portfolio-grid,
+            .products-grid,
+            .blog-grid,
+            .testimonial-grid,
+            .affiliate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .income-stats {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-item {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .resume-popup {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .resume-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Time Tracker -->
+    <div class="time-tracker" id="timeTracker">
+        <span id="viewCount">0</span> views today | <span id="conversionRate">0%</span> CTR
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-palette"></i>
+                    <span>CreativeHub</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#store">Store</a></li>
+                    <li><a href="#affiliate">Affiliate</a></li>
+                    <li><a href="#youtube">YouTube</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#hire">Hire Me</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Resume Popup Button -->
+    <div class="resume-popup">
+        <div class="resume-btn" id="resumeButton">
+            <i class="fas fa-file-pdf"></i>
+        </div>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div class="thankyou-popup" id="thankYouPopup">
+        <div class="thankyou-content">
+            <span class="close-popup" id="closePopup">&times;</span>
+            <h2>Thank You for Visiting!</h2>
+            <p>We appreciate you taking the time to explore CreativeHub. Feel free to download my resume or browse my
+                portfolio.</p>
+            <a href="./resume.html" class="btn" id="downloadResume">Download Resume</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Monetize Your Design Skills</h1>
+            <p>Turn your creativity into multiple income streams with Canva designs, YouTube content, affiliate
+                marketing, and digital products</p>
+            <div class="hero-buttons">
+                <a href="#freebies" class="btn">Get Free Resources</a>
+                <a href="#youtube" class="btn btn-accent">Watch Tutorials</a>
+                <a href="#affiliate" class="btn btn-warning">Earn with Affiliate</a>
+            </div>
+
+            <div class="income-stats">
+                <div class="stat-item">
+                    <div class="stat-value">$5,200+</div>
+                    <div class="stat-label">Monthly Earnings</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">28,500+</div>
+                    <div class="stat-label">YouTube Subscribers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">$12,800+</div>
+                    <div class="stat-label">Affiliate Income</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tabs Navigation -->
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="portfolio">Portfolio</button>
+            <button class="tab-btn" data-tab="store">Digital Store</button>
+            <button class="tab-btn" data-tab="affiliate">Affiliate Marketing</button>
+            <button class="tab-btn" data-tab="youtube">YouTube Channel</button>
+            <button class="tab-btn" data-tab="blog">Blog</button>
+            <button class="tab-btn" data-tab="hire">Hire Me</button>
+        </div>
+    </div>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="tab-content active">
+        <div class="container">
+            <h2 class="section-title">My Canva Portfolio</h2>
+            <p class="section-subtitle">Browse through my collection of professional Canva designs and templates</p>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-item card">
+                    <img src="https://via.placeholder.com/400x250/6C63FF/ffffff?text=Social+Media+Pack"
+                        alt="Social Media Pack" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Social Media Pack</h3>
+                        <p>Complete set of templates for Instagram, Facebook, and Twitter</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item card">
+                    <img src="https://via.placeholder.com/400x250/4A40E5/ffffff?text=Presentation+Templates"
+                        alt="Presentation Templates" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Presentation Templates</h3>
+                        <p>Professional slides for business and educational purposes</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item card">
+                    <img src="https://via.placeholder.com/400x250/FF6584/ffffff?text=YouTube+Package"
+                        alt="YouTube Package" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>YouTube Package</h3>
+                        <p>Thumbnails, banners, and end screens for content creators</p>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Section -->
+    <section id="store" class="tab-content">
+        <div class="container">
+            <h2 class="section-title">Digital Products Store</h2>
+            <p class="section-subtitle">Ready-to-use templates and digital products for instant download</p>
+
+            <div class="products-grid">
+                <div class="product-card card">
+                    <img src="https://via.placeholder.com/300x200/6C63FF/ffffff?text=Canva+Template+Pack"
+                        alt="Canva Template Pack" class="product-img">
+                    <h3>Complete Canva Template Pack</h3>
+                    <p>50+ customizable templates for social media, presentations, and more</p>
+                    <div class="product-price">$29.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+
+                <div class="product-card card">
+                    <img src="https://via.placeholder.com/300x200/4A40E5/ffffff?text=Social+Media+Kit"
+                        alt="Social Media Kit" class="product-img">
+                    <h3>Social Media Content Kit</h3>
+                    <p>30 days of pre-designed social media posts with captions</p>
+                    <div class="product-price">$19.99</div>
+                    <button class="btn">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Section -->
+    <section id="affiliate" class="tab-content affiliate">
+        <div class="container">
+            <h2 class="section-title">Affiliate Marketing</h2>
+            <p class="section-subtitle">These tools and resources helped me build my online business - I earn
+                commissions if you purchase through my links</p>
+
+            <div class="affiliate-grid">
+                <div class="affiliate-card card">
+                    <div class="affiliate-badge">Recommended</div>
+                    <div class="affiliate-icon"><i class="fab fa-canva"></i></div>
+                    <h3>Canva Pro</h3>
+                    <p>Unlock premium features with Canva Pro. My favorite design tool that I use daily.</p>
+                    <a href="#" class="btn">Get 45 Days Free Trial</a>
+                </div>
+
+                <div class="affiliate-card card">
+                    <div class="affiliate-icon"><i class="fas fa-video"></i></div>
+                    <h3>TubeBuddy</h3>
+                    <p>YouTube channel management tool that helped me grow to 28K+ subscribers.</p>
+                    <a href="#" class="btn">Get TubeBuddy Discount</a>
+                </div>
+
+                <div class="affiliate-card card">
+                    <div class="affiliate-badge">Best Value</div>
+                    <div class="affiliate-icon"><i class="fas fa-laptop"></i></div>
+                    <h3>Skillshare</h3>
+                    <p>Learn new skills with thousands of classes. Get 2 free months with my link.</p>
+                    <a href="#" class="btn">Get Free Access</a>
+                </div>
+
+                <div class="affiliate-card card">
+                    <div class="affiliate-icon"><i class="fas fa-book"></i></div>
+                    <h3>Design Books</h3>
+                    <p>My curated list of design books that improved my skills significantly.</p>
+                    <a href="#" class="btn">View on Amazon</a>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#" class="btn btn-accent">View All Affiliate Recommendations</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- YouTube Section -->
+    <section id="youtube" class="tab-content youtube-section">
+        <div class="container">
+            <div class="youtube-container">
+                <div>
+                    <h2 class="section-title" style="color: white;">My YouTube Channel</h2>
+                    <p style="margin-bottom: 30px; font-size: 1.2rem;">I create tutorials on Canva design, passive
+                        income strategies, and growing your online business. Subscribe to learn how to monetize your
+                        skills!</p>
+
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-accent"><i class="fab fa-youtube"></i> Subscribe</a>
+                        <a href="#" class="btn" style="background: white; color: var(--primary);">Watch Latest Video</a>
+                    </div>
+
+                    <div class="youtube-stats">
+                        <div class="youtube-stat">
+                            <div class="youtube-stat-value">28.5K+</div>
+                            <div class="youtube-stat-label">Subscribers</div>
+                        </div>
+                        <div class="youtube-stat">
+                            <div class="youtube-stat-value">1.2M+</div>
+                            <div class="youtube-stat-label">Views</div>
+                        </div>
+                        <div class="youtube-stat">
+                            <div class="youtube-stat-value">126+</div>
+                            <div class="youtube-stat-label">Videos</div>
+                        </div>
+                        <div class="youtube-stat">
+                            <div class="youtube-stat-value">$3.2K+</div>
+                            <div class="youtube-stat-label">Monthly Revenue</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="background: rgba(255, 255, 255, 0.1); border: none; color: white;">
+                        <img src="https://via.placeholder.com/500x300/FFFFFF/6C63FF?text=Latest+YouTube+Video"
+                            alt="YouTube Video" style="width: 100%; border-radius: var(--radius) var(--radius) 0 0;">
+                        <div style="padding: 20px;">
+                            <h3>How I Made $10,000/Month with Canva Templates</h3>
+                            <p>In this video, I break down my exact strategy for creating and selling Canva templates on
+                                Etsy and other platforms.</p>
+                            <a href="#" class="btn btn-accent">Watch Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="tab-content">
+        <div class="container">
+            <h2 class="section-title">Blog & Tutorials</h2>
+            <p class="section-subtitle">Learn design tips, marketing strategies, and ways to monetize your skills</p>
+
+            <div class="blog-grid">
+                <div class="blog-card card">
+                    <img src="https://via.placeholder.com/400x250/6C63FF/ffffff?text=Canva+Tutorial"
+                        alt="Canva Tutorial" class="blog-img">
+                    <div class="blog-content">
+                        <span class="affiliate-tag">Affiliate</span>
+                        <div class="blog-date">June 15, 2023</div>
+                        <h3>How to Create Viral Social Media Graphics in Canva</h3>
+                        <p>Learn the secrets to designing eye-catching graphics that boost engagement and reach...</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+
+                <div class="blog-card card">
+                    <img src="https://via.placeholder.com/400x250/4A40E5/ffffff?text=Marketing+Tips"
+                        alt="Marketing Tips" class="blog-img">
+                    <div class="blog-content">
+                        <div class="blog-date">June 8, 2023</div>
+                        <h3>10 Ways to Market Your Digital Products Effectively</h3>
+                        <p>Discover proven strategies to increase your digital product sales without spending a
+                            fortune...</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+
+                <div class="blog-card card">
+                    <img src="https://via.placeholder.com/400x250/FF6584/ffffff?text=Passive+Income"
+                        alt="Passive Income" class="blog-img">
+                    <div class="blog-content">
+                        <span class="affiliate-tag">Affiliate</span>
+                        <div class="blog-date">June 1, 2023</div>
+                        <h3>How I Made $5,000/month Selling Canva Templates</h3>
+                        <p>My journey from beginner to successful digital entrepreneur selling design templates
+                            online...</p>
+                        <a href="#" class="btn btn-outline">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hire Me Section -->
+    <section id="hire" class="tab-content">
+        <div class="container">
+            <h2 class="section-title">Hire Me for Your Project</h2>
+            <p class="section-subtitle">Let's work together to bring your ideas to life with custom designs and
+                solutions</p>
+
+            <div class="hire-content">
+                <div>
+                    <h3>My Services</h3>
+                    <ul>
+                        <li>Custom Canva template design</li>
+                        <li>Social media graphics packages</li>
+                        <li>Presentation design</li>
+                        <li>Logo and branding packages</li>
+                        <li>Website design and development</li>
+                        <li>Content creation strategy</li>
+                    </ul>
+
+                    <h3>Why Work With Me?</h3>
+                    <p>I combine creative design skills with technical expertise to deliver solutions that not only look
+                        great but also help you achieve your business goals. With quick turnaround times and a focus on
+                        client satisfaction, I've helped dozens of clients enhance their visual presence.</p>
+
+                    <div class="testimonial-grid">
+                        <div class="testimonial-card card">
+                            <p class="testimonial-text">"The templates I received were exactly what I needed for my
+                                business. The designer was responsive and delivered ahead of schedule!"</p>
+                            <div class="testimonial-author">
+                                <img src="https://via.placeholder.com/50/6C63FF/ffffff?text=J" alt="Client"
+                                    class="author-img">
+                                <div>
+                                    <h4>Jane Smith</h4>
+                                    <p>Small Business Owner</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hire-form">
+                    <h3>Get in Touch</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="canva">Canva Design</option>
+                                <option value="social">Social Media Graphics</option>
+                                <option value="presentation">Presentation Design</option>
+                                <option value="logo">Logo & Branding</option>
+                                <option value="website">Website Design</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn" style="width: 100%">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CreativeHub</h3>
+                    <p>Your all-in-one solution for design, digital products, and creative content. Turn your creativity
+                        into income!</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Income Streams</h3>
+                    <ul class="footer-links">
+                        <li><a href="#store">Digital Products</a></li>
+                        <li><a href="#affiliate">Affiliate Marketing</a></li>
+                        <li><a href="#youtube">YouTube Channel</a></li>
+                        <li><a href="#hire">Freelance Services</a></li>
+                        <li><a href="#blog">Blog & Content</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Free Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Canva Templates</a></li>
+                        <li><a href="#">YouTube Checklist</a></li>
+                        <li><a href="#">Affiliate Marketing Guide</a></li>
+                        <li><a href="#">Design Tutorials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> hello@creativehub.com</li>
+                        <li><i class="fab fa-fiverr"></i> @creativehub</li>
+                        <li><i class="fab fa-upwork"></i> CreativeHub</li>
+                        <li><i class="fab fa-etsy"></i> CreativeHubStore</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2023 CreativeHub. All rights reserved. | <a href="#" style="color: #ddd;">Privacy Policy</a> |
+                    <a href="#" style="color: #ddd;">Terms of Service</a> | <a href="#" style="color: #ddd;">Affiliate
+                        Disclosure</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    // Show corresponding content
+                    const tabId = btn.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+
+                    // Scroll to section
+                    document.getElementById(tabId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            // Mobile menu toggle
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // If it's a tab content, activate the tab first
+                        if (targetId === '#portfolio' || targetId === '#store' ||
+                            targetId === '#blog' || targetId === '#hire' ||
+                            targetId === '#affiliate' || targetId === '#youtube') {
+                            const tabBtn = document.querySelector(`.tab-btn[data-tab="${targetId.substring(1)}"]`);
+                            if (tabBtn) {
+                                tabBtn.click();
+                                return;
+                            }
+                        }
+
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // Simple form validation
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const service = document.getElementById('service').value;
+                    const message = document.getElementById('message').value;
+
+                    if (!name || !email || !service || !message) {
+                        alert('Please fill in all fields');
+                        return;
+                    }
+
+                    // Here you would normally send the form data to a server
+                    // For this example, we'll just show a success message
+                    alert('Thanks for your message! I\'ll get back to you soon.');
+                    contactForm.reset();
+                });
+            }
+
+            // Header background change on scroll
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                    header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.background = 'white';
+                    header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.1)';
+                }
+            });
+
+            // Animate stats counter
+            function animateValue(element, start, end, duration) {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    element.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString() + '+';
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+
+            // Animate stats when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statValue = entry.target.querySelector('.stat-value');
+                        const value = parseInt(statValue.textContent.replace('+', '').replace(',', ''));
+                        animateValue(statValue, 0, value, 2000);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            document.querySelectorAll('.stat-item').forEach(stat => {
+                observer.observe(stat);
+            });
+
+            // Resume button functionality
+            const resumeButton = document.getElementById('resumeButton');
+            const downloadResume = document.getElementById('downloadResume');
+
+            if (resumeButton) {
+                resumeButton.addEventListener('click', function () {
+                    // Show the thank you popup when resume button is clicked
+                    document.getElementById('thankYouPopup').classList.add('active');
+
+                    // Track this as a conversion
+                    incrementConversions();
+                });
+            }
+
+            // Close popup functionality
+            const closePopup = document.getElementById('closePopup');
+            if (closePopup) {
+                closePopup.addEventListener('click', function () {
+                    document.getElementById('thankYouPopup').classList.remove('active');
+                });
+            }
+
+            // Time tracker functionality
+            function updateTimeTracker() {
+                // Get today's date for localStorage key
+                const today = new Date().toDateString();
+
+                // Initialize view count for today if it doesn't exist
+                if (!localStorage.getItem('viewCount_' + today)) {
+                    localStorage.setItem('viewCount_' + today, '0');
+                }
+
+                // Initialize conversions for today if it doesn't exist
+                if (!localStorage.getItem('conversions_' + today)) {
+                    localStorage.setItem('conversions_' + today, '0');
+                }
+
+                // Check if this is the first view in this session
+                if (!sessionStorage.getItem('hasViewed')) {
+                    // Increment view count
+                    const currentViews = parseInt(localStorage.getItem('viewCount_' + today));
+                    localStorage.setItem('viewCount_' + today, (currentViews + 1).toString());
+
+                    // Mark that this session has been counted
+                    sessionStorage.setItem('hasViewed', 'true');
+
+                    // Show thank you popup for first-time visitors
+                    setTimeout(function () {
+                        document.getElementById('thankYouPopup').classList.add('active');
+                    }, 2000);
+                }
+
+                // Update the view count display
+                const viewCount = parseInt(localStorage.getItem('viewCount_' + today));
+                document.getElementById('viewCount').textContent = viewCount;
+
+                // Calculate and update conversion rate
+                const conversions = parseInt(localStorage.getItem('conversions_' + today));
+                const conversionRate = viewCount > 0 ? Math.round((conversions / viewCount) * 100) : 0;
+                document.getElementById('conversionRate').textContent = conversionRate + '%';
+            }
+
+            function incrementConversions() {
+                const today = new Date().toDateString();
+                const currentConversions = parseInt(localStorage.getItem('conversions_' + today));
+                localStorage.setItem('conversions_' + today, (currentConversions + 1).toString());
+
+                // Update the display
+                updateTimeTracker();
+            }
+
+            // Initialize time tracker
+            updateTimeTracker();
+        });
+    </script>
+</body>
+
+</html>

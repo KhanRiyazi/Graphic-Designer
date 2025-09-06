@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rizwan Ali - Developer | Design Thinking | STEM Educator</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #7c3aed;
+            --accent: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.5;
+            color: var(--dark);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--light);
+        }
+
+        .resume-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 30px;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f7fe 100%);
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        h1 {
+            color: var(--primary);
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-weight: 500;
+            margin: 8px 0;
+        }
+
+        .contact-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-size: 20px;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin: 25px 30px 15px;
+        }
+
+        .section {
+            padding: 0 30px 20px;
+        }
+
+        .experience {
+            margin-bottom: 20px;
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .role {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .company {
+            color: var(--secondary);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .period {
+            color: #64748b;
+            font-size: 0.9em;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        li:before {
+            content: "▹";
+            color: var(--accent);
+            position: absolute;
+            left: -18px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .skill-pill {
+            background: white;
+            border: 1px solid #e2e8f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            text-align: center;
+        }
+
+        .highlight {
+            background-color: rgba(16, 185, 129, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .download-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: block;
+            margin: 30px auto;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .portfolio-item {
+            background: #f8fafc;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .portfolio-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+
+            .section,
+            header {
+                padding: 20px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+                font-size: 11pt;
+            }
+
+            .resume-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .download-btn {
+                display: none;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="resume-container">
+        <header>
+            <h1>Rizwan Ali</h1>
+            <p class="tagline">Developer | Design Thinking | STEM Educator</p>
+
+            <div class="contact-bar">
+                <span>📞 +91 98975 11437</span>
+                <span>✉️ rizwanrka826@gmail.com</span>
+                <span>🌐 Delhi, India (Remote)</span>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>Professional Profile</h2>
+            <p>Multidisciplinary Teacher with 9+ years creating educational content, 100+ Canva templates, and 200+
+                GitHub repositories. Developed AI learning programs at Muskaan Dreams reaching 10,000+ students.
+                Passionate about combining design thinking with technical education through visual storytelling and
+                interactive content.</p>
+        </div>
+
+        <div class="section">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-pill">Canva Design</div>
+                <div class="skill-pill">Template Creation</div>
+                <div class="skill-pill">Python Automation</div>
+                <div class="skill-pill">STEM Education</div>
+                <div class="skill-pill">Visual Storytelling</div>
+                <div class="skill-pill">Curriculum Design</div>
+                <div class="skill-pill">AI Integration</div>
+                <div class="skill-pill">Educational Technology</div>
+                <div class="skill-pill">Content Strategy</div>
+                <div class="skill-pill">Data Visualization</div>
+                <div class="skill-pill">Open Source</div>
+                <div class="skill-pill">Community Building</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Digital Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Canva Templates</div>
+                    <div>100+ professional templates for education & tech</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Blogger Articles</div>
+                    <div>500+ technical tutorials with Canva visuals</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-title">GitHub Repositories</div>
+                    <div>200+ projects with educational documentation</div>
+                </div>
+                <div class="portfolio-item">
+                    <div class="portfolio-title">Muskaan Dreams</div>
+                    <div>AI education for 10,000+ underprivileged students</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Professional Experience</h2>
+
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">Python Automation Engineer</span>
+                    <span class="period">2023-Present</span>
+                </div>
+                <div class="company">Working with Owain James (US-based Client)</div>
+                <ul>
+                    <li>Created <span class="highlight">50+ Canva templates</span> for automated report generation</li>
+                    <li>Developed web scrapers with <span class="highlight">99.9% accuracy</span> for legal data
+                        collection</li>
+                    <li>Documented processes using visual workflows and template systems</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">AI Education Specialist</span>
+                    <span class="period">2020-2023</span>
+                </div>
+                <div class="company">Muskaan Dreams Foundation, Lucknow</div>
+                <ul>
+                    <li>Designed <span class="highlight">30+ Canva templates</span> for AI learning materials</li>
+                    <li>Developed interactive Scratch programs teaching ML concepts</li>
+                    <li>Trained <span class="highlight">500+ teachers</span> using visual teaching aids</li>
+                    <li>Created Canva-powered dashboards to track student progress</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">STEM Educator & Designer</span>
+                    <span class="period">2014-2020</span>
+                </div>
+                <div class="company">Minto Circle School, AMU Aligarh</div>
+                <ul>
+                    <li>Developed <span class="highlight">100+ Canva designs</span> for instructional materials</li>
+                    <li>Created template systems for worksheets and lesson plans</li>
+                    <li>Pioneered visual programming curriculum using Scratch</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Creative Projects</h2>
+
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">Canva Template Library</span>
+                </div>
+                <ul>
+                    <li>Designed <span class="highlight">100+ professional templates</span> for education and tech</li>
+                    <li>Created brand systems for open source projects</li>
+                    <li>Developed template automation with Python-Canva API</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">Muskaan Dreams AI Curriculum</span>
+                </div>
+                <ul>
+                    <li>Built interactive learning modules with Canva visuals</li>
+                    <li>Developed teacher training materials using template system</li>
+                    <li>Created progress tracking dashboards with automated updates</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <div class="experience">
+                <div class="exp-header">
+                    <span class="role">M.Sc Computer Languages</span>
+                    <span class="period">2020-2022</span>
+                </div>
+                <div class="company">Aligarh Muslim University</div>
+                <ul>
+                    <li>Thesis: <span class="highlight">"Visual Programming Interfaces for STEM Education"</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <button class="download-btn" onclick="window.print()">Download Resume</button>
+    </div>
+
+    <script>
+        document.querySelector('.download-btn').addEventListener('click', function () {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media print {
+                    body { padding: 0; font-size: 11pt; }
+                    .resume-container { box-shadow: none; border-radius: 0; }
+                    a { text-decoration: none; color: #333; }
+                    .download-btn { display: none; }
+                }
+            `;
+            document.head.appendChild(style);
+            document.title = "Rizwan Ali - Developer | Design Thinking | STEM Educator";
+            window.print();
+            setTimeout(() => document.head.removeChild(style), 1000);
+        });
+    </script>
+</body>
+
+</html>
