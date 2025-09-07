@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Marketing Coaching - Rizwan Khan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            color: #fff;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: .5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        nav {
+            background: #333;
+            padding: .8rem;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        section {
+            padding: 3rem 10%;
+        }
+
+        .video-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .video-container iframe {
+            width: 100%;
+            max-width: 700px;
+            height: 400px;
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: #4f46e5;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: .8rem 1.5rem;
+            background: #4f46e5;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #9333ea;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #333;
+            color: #fff;
+            margin-top: 3rem;
+        }
+
+        /* Dashboard Styles */
+        .dashboard {
+            background: linear-gradient(to bottom, #f3f4f6, #e5e7eb);
+            padding: 3rem 5%;
+        }
+
+        .dashboard h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #4f46e5;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .link-card {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), center/cover no-repeat;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            position: relative;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            z-index: 2;
+        }
+
+        .link-card p {
+            margin-bottom: 1.5rem;
+            z-index: 2;
+        }
+
+        .link-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .link-button:hover {
+            background: #fff;
+            color: #4f46e5;
+        }
+
+        /* Individual background images for each card */
+        .amazon-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .flipkart-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1563014959-7aaa83350992?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .canva-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1634942536746-46b9a6de9231?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .shopify-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .clickbank-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1563013546-7e5c053c14aa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        .shareasale-card {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+        }
+
+        @media (max-width: 768px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .link-card {
+                min-height: 180px;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero -->
+    <header>
+        <h1>Affiliate Marketing Coaching</h1>
+        <p>Learn to Earn Online with Rizwan Khan as Your Guide</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#video">Video</a>
+        <a href="#programs">Top Programs</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- About -->
+    <section id="about">
+        <h2>Why Affiliate Marketing?</h2>
+        <p>
+            Affiliate marketing is one of the best ways to earn money online.
+            As your coach, I'll guide you on choosing the right programs,
+            building your online presence, and monetizing with ease.
+        </p>
+    </section>
+
+    <!-- Video -->
+    <section id="video">
+        <h2>Watch My Coaching Session</h2>
+        <div class="video-container">
+            <!-- Replace with your own YouTube link -->
+            <iframe src="https://www.youtube.com/embed/ZnbAkT-GSC8?si=XNvNOyiAlBh8dXBN" title="Affiliate Coaching Video"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <!-- Programs -->
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="dashboard">
+        <h2>My Affiliate Links Dashboard</h2>
+        <div class="link-grid">
+            <div class="link-card amazon-card">
+                <h3>Amazon Associates</h3>
+                <p>Earn commissions by promoting millions of products</p>
+                <a href="https://affiliate-program.amazon.com/" target="_blank" class="link-button">Access Now</a>
+            </div>
+
+            <div class="link-card flipkart-card">
+                <h3>Flipkart Affiliate</h3>
+                <p>India's popular e-commerce platform with great rates</p>
+                <a href="https://affiliate.flipkart.com" target="_blank" class="link-button">Access Now</a>
+            </div>
+
+            <div class="link-card canva-card">
+                <h3>Canva Affiliate</h3>
+                <p>Promote Canva Pro and earn generous commissions</p>
+                <a href="https://www.canva.com/affiliates/" target="_blank" class="link-button">Access Now</a>
+            </div>
+
+            <div class="link-card shopify-card">
+                <h3>Shopify Affiliate</h3>
+                <p>Earn up to $150 for each merchant you refer</p>
+                <a href="https://www.shopify.com/affiliates" target="_blank" class="link-button">Access Now</a>
+            </div>
+
+            <div class="link-card clickbank-card">
+                <h3>ClickBank</h3>
+                <p>Market digital products with high commission rates</p>
+                <a href="https://www.clickbank.com/" target="_blank" class="link-button">Access Now</a>
+            </div>
+
+            <div class="link-card shareasale-card">
+                <h3>ShareASale</h3>
+                <p>Thousands of affiliate programs across various niches</p>
+                <a href="https://www.shareasale.com/" target="_blank" class="link-button">Access Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Get in Touch</h2>
+        <p>If you want 1-on-1 coaching or more resources, contact me today.</p>
+        <p>Email: <strong>rizwanrka826@gamil.com</strong></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Rizwan Khan | Affiliate Marketing Coach</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll("nav a").forEach(link => {
+            link.addEventListener("click", e => {
+                e.preventDefault();
+                const targetId = link.getAttribute("href").substring(1);
+                document.getElementById(targetId).scrollIntoView({
+                    behavior: "smooth"
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
