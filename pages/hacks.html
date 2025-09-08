@@ -22,11 +22,17 @@
             --accent1: #f72585;
             --accent2: #4cc9f0;
             --accent3: #ffbe0b;
+            --accent4: #06d6a0;
+            --accent5: #ff9e00;
+            --accent6: #9d4edd;
             --dark: #1a1a2e;
             --dark-light: #2d2d44;
             --light: #f8f9fa;
             --gray: #6c757d;
             --gray-light: #e9ecef;
+            --gold: #ffd166;
+            --wealth-green: #06d6a0;
+            --luxury-purple: #9d4edd;
         }
 
         body {
@@ -157,6 +163,32 @@
             }
         }
 
+        /* Billionaire animation */
+        .money-fall {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            display: none;
+        }
+
+        .money {
+            position: absolute;
+            color: var(--gold);
+            font-size: 24px;
+            animation: fall linear forwards;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
         header {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: #fff;
@@ -252,6 +284,24 @@
             margin-bottom: 0.5rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
             font-weight: 800;
+        }
+
+        .billionaire-title {
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin: 1rem 0;
+            text-shadow: 0 0 10px rgba(255, 209, 102, 0.5);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 209, 102, 0.5);
+            }
+
+            to {
+                text-shadow: 0 0 20px rgba(255, 209, 102, 0.8), 0 0 30px rgba(255, 209, 102, 0.6);
+            }
         }
 
         header p {
@@ -469,18 +519,33 @@
         }
 
         #tricks-btn {
-            bottom: 200px;
+            bottom: 280px;
             background: linear-gradient(135deg, var(--accent1), #ff4da6);
         }
 
         #techniques-btn {
-            bottom: 120px;
+            bottom: 200px;
             background: linear-gradient(135deg, var(--accent2), #2dc5f0);
         }
 
         #hacks-btn {
-            bottom: 40px;
+            bottom: 120px;
             background: linear-gradient(135deg, var(--accent3), #ffcb45);
+        }
+
+        #billionaire-btn {
+            bottom: 40px;
+            background: linear-gradient(135deg, var(--gold), #ffb700);
+        }
+
+        #wealth-btn {
+            bottom: 360px;
+            background: linear-gradient(135deg, var(--wealth-green), #05a380);
+        }
+
+        #luxury-btn {
+            bottom: 440px;
+            background: linear-gradient(135deg, var(--luxury-purple), #7b2cbf);
         }
 
         .content-panel {
@@ -715,6 +780,103 @@
             font-size: 1.5rem;
         }
 
+        /* Billionaire Mindset Section */
+        .billionaire-section {
+            background: linear-gradient(to right, #1a1a2e, #16213e);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 20px;
+            margin: 4rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .billionaire-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100" opacity="0.05"><text x="50%" y="50%" font-size="80" text-anchor="middle" dominant-baseline="middle" fill="white">$</text></svg>');
+            background-repeat: repeat;
+            z-index: 0;
+        }
+
+        .billionaire-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+
+        .billionaire-section p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .billionaire-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .billionaire-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .billionaire-card h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            width: 100%;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            margin: 2rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(to right, var(--accent4), var(--accent2));
+            border-radius: 10px;
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -827,15 +989,27 @@
             }
 
             #tricks-btn {
-                bottom: 180px;
+                bottom: 260px;
             }
 
             #techniques-btn {
-                bottom: 110px;
+                bottom: 190px;
             }
 
             #hacks-btn {
-                bottom: 40px;
+                bottom: 120px;
+            }
+
+            #billionaire-btn {
+                bottom: 50px;
+            }
+
+            #wealth-btn {
+                bottom: 330px;
+            }
+
+            #luxury-btn {
+                bottom: 400px;
             }
 
             .cta {
@@ -879,6 +1053,36 @@
             .workshop-info {
                 padding: 1.5rem;
             }
+
+            .suspension-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            #tricks-btn {
+                bottom: 230px;
+            }
+
+            #techniques-btn {
+                bottom: 170px;
+            }
+
+            #hacks-btn {
+                bottom: 110px;
+            }
+
+            #billionaire-btn {
+                bottom: 50px;
+            }
+
+            #wealth-btn {
+                bottom: 290px;
+            }
+
+            #luxury-btn {
+                bottom: 350px;
+            }
         }
     </style>
 </head>
@@ -898,10 +1102,14 @@
         <li></li>
     </ul>
 
+    <!-- Money fall animation -->
+    <div class="money-fall" id="money-fall"></div>
+
     <!-- Header -->
     <header>
         <div class="header-content">
             <h1>AI Workshop for Class 9 & 10</h1>
+            <div class="billionaire-title">Building Billionaire Minds with AI</div>
             <p>Smart Tricks, Techniques & Hacks for Students</p>
 
             <div class="teacher-profile">
@@ -931,6 +1139,7 @@
         <a href="#tricks"><i class="fas fa-magic"></i> Tricks</a>
         <a href="#techniques"><i class="fas fa-cogs"></i> Techniques</a>
         <a href="#hacks"><i class="fas fa-tools"></i> Hacks</a>
+        <a href="#billionaire-mind"><i class="fas fa-crown"></i> Billionaire Mind</a>
         <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
     </nav>
 
@@ -959,6 +1168,7 @@
                 <li>Explore each subject card to see how AI applies to different fields</li>
                 <li>Try the interactive demos to get hands-on experience</li>
                 <li>Ask questions through the contact form if you need help</li>
+                <li>Check out the billionaire mindset section to develop wealth-building thinking</li>
             </ul>
         </div>
     </section>
@@ -1071,6 +1281,54 @@
         </ul>
     </section>
 
+    <!-- Billionaire Mindset Section -->
+    <section id="billionaire-mind">
+        <h2 class="section-title">Design Your Billionaire Mind</h2>
+
+        <div class="billionaire-section">
+            <h2>From Student to Billionaire: The AI Pathway</h2>
+            <p>Your journey to financial freedom starts with developing the right mindset. AI is your tool to accelerate
+                this transformation.</p>
+
+            <div class="progress-container">
+                <div class="progress-bar" id="billionaire-progress"></div>
+                <div class="progress-text" id="progress-text">0% Billionaire Mindset</div>
+            </div>
+
+            <div class="billionaire-card">
+                <h3><i class="fas fa-seedling"></i> Nature: Your Innate Potential</h3>
+                <p>Every billionaire started with curiosity, creativity, and resilience—qualities you already possess.
+                    Your mind is the most valuable asset you'll ever own.</p>
+            </div>
+
+            <div class="billionaire-card">
+                <h3><i class="fas fa-hands-helping"></i> Nurture: Environment & Learning</h3>
+                <p>Surround yourself with knowledge, mentors, and opportunities. AI can accelerate your learning curve
+                    10x faster than traditional methods.</p>
+            </div>
+
+            <div class="billionaire-card">
+                <h3><i class="fas fa-brain"></i> Mind Design: Building Habits</h3>
+                <p>Consciously design your thinking patterns, vision, and discipline. Wealth creation begins in the mind
+                    before it manifests in reality.</p>
+            </div>
+
+            <div class="billionaire-card">
+                <h3><i class="fas fa-spa"></i> Mind Flower: Blossoming Potential</h3>
+                <p>When nature and nurture combine, your mind blossoms—opening limitless possibilities for innovation,
+                    value creation, and wealth.</p>
+            </div>
+
+            <div class="billionaire-card">
+                <h3><i class="fas fa-crown"></i> Billionaire Mindset: The Ultimate Bloom</h3>
+                <p>The final stage: clarity, impact, and exponential wealth creation through innovation and service to
+                    others.</p>
+            </div>
+
+            <button onclick="activateBillionaireMode()"><i class="fas fa-crown"></i> Activate Billionaire Mode</button>
+        </div>
+    </section>
+
     <!-- Suspension Buttons -->
     <div class="suspension-btn" id="tricks-btn">
         <span>🧠</span>
@@ -1080,6 +1338,15 @@
     </div>
     <div class="suspension-btn" id="hacks-btn">
         <span>💡</span>
+    </div>
+    <div class="suspension-btn" id="billionaire-btn">
+        <span>👑</span>
+    </div>
+    <div class="suspension-btn" id="wealth-btn">
+        <span>💰</span>
+    </div>
+    <div class="suspension-btn" id="luxury-btn">
+        <span>🏆</span>
     </div>
 
     <!-- Content Panels -->
@@ -1117,6 +1384,45 @@
             <li><strong>Productivity:</strong> AI for scheduling and organization</li>
         </ul>
         <button onclick="launchInteractive('hacks')"><i class="fas fa-play"></i> Try Interactive Demo</button>
+    </div>
+
+    <div class="content-panel" id="billionaire-panel">
+        <span class="close-btn" onclick="closePanel('billionaire-panel')">×</span>
+        <h3>Billionaire Mindset Tools</h3>
+        <ul>
+            <li><strong>Vision Board Generator:</strong> Create your wealth vision with AI</li>
+            <li><strong>Goal Setting System:</strong> Break down big goals into achievable steps</li>
+            <li><strong>Wealth Affirmations:</strong> Daily mindset exercises</li>
+            <li><strong>AI Mentor:</strong> Simulated conversations with successful entrepreneurs</li>
+            <li><strong>Investment Simulator:</strong> Practice building wealth risk-free</li>
+        </ul>
+        <button onclick="launchBillionaireTools()"><i class="fas fa-crown"></i> Access Billionaire Tools</button>
+    </div>
+
+    <div class="content-panel" id="wealth-panel">
+        <span class="close-btn" onclick="closePanel('wealth-panel')">×</span>
+        <h3>Wealth Building with AI</h3>
+        <ul>
+            <li><strong>AI Market Analysis:</strong> Identify opportunities with data</li>
+            <li><strong>Automated Business Ideas:</strong> Generate tailored business concepts</li>
+            <li><strong>Financial Planning:</strong> AI-powered budget and investment strategies</li>
+            <li><strong>Passive Income Systems:</strong> Set up automated revenue streams</li>
+            <li><strong>Networking Assistant:</strong> AI that helps you connect with influencers</li>
+        </ul>
+        <button onclick="showWealthSecrets()"><i class="fas fa-lock-open"></i> Reveal Wealth Secrets</button>
+    </div>
+
+    <div class="content-panel" id="luxury-panel">
+        <span class="close-btn" onclick="closePanel('luxury-panel')">×</span>
+        <h3>Lifestyle Design</h3>
+        <ul>
+            <li><strong>Virtual Luxury Experiences:</strong> Preview the billionaire lifestyle</li>
+            <li><strong>AI Personal Stylist:</strong> Develop your signature look</li>
+            <li><strong>Elite Health Optimization:</strong> Custom wellness plans</li>
+            <li><strong>Time Management Mastery:</strong> Reclaim hours in your day</li>
+            <li><strong>Philanthropy Planning:</strong> Design your impact legacy</li>
+        </ul>
+        <button onclick="experienceLuxury()"><i class="fas fa-gem"></i> Experience Luxury Preview</button>
     </div>
 
     <!-- Call to Action -->
@@ -1183,6 +1489,18 @@
             togglePanel('hacks-panel');
         });
 
+        document.getElementById('billionaire-btn').addEventListener('click', function () {
+            togglePanel('billionaire-panel');
+        });
+
+        document.getElementById('wealth-btn').addEventListener('click', function () {
+            togglePanel('wealth-panel');
+        });
+
+        document.getElementById('luxury-btn').addEventListener('click', function () {
+            togglePanel('luxury-panel');
+        });
+
         function togglePanel(panelId) {
             const panel = document.getElementById(panelId);
             const allPanels = document.querySelectorAll('.content-panel');
@@ -1210,17 +1528,86 @@
             // In a real implementation, this would launch the subject lesson
         }
 
+        // Billionaire mode functions
+        function activateBillionaireMode() {
+            // Create money falling animation
+            const moneyFall = document.getElementById('money-fall');
+            moneyFall.style.display = 'block';
+
+            // Animate progress bar
+            const progressBar = document.getElementById('billionaire-progress');
+            const progressText = document.getElementById('progress-text');
+            let progress = 0;
+
+            const progressInterval = setInterval(() => {
+                progress += 1;
+                progressBar.style.width = `${progress}%`;
+                progressText.textContent = `${progress}% Billionaire Mindset`;
+
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    progressText.textContent = "100% Billionaire Mindset Achieved!";
+                    setTimeout(() => {
+                        moneyFall.style.display = 'none';
+                    }, 3000);
+                }
+            }, 50);
+
+            // Create falling money elements
+            for (let i = 0; i < 50; i++) {
+                createMoney();
+            }
+        }
+
+        function createMoney() {
+            const money = document.createElement('div');
+            money.classList.add('money');
+            money.innerHTML = '💰';
+            money.style.left = Math.random() * 100 + 'vw';
+            money.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            money.style.opacity = Math.random();
+            money.style.fontSize = (Math.random() * 20 + 15) + 'px';
+
+            document.getElementById('money-fall').appendChild(money);
+
+            // Remove money after animation completes
+            setTimeout(() => {
+                money.remove();
+            }, 5000);
+        }
+
+        function launchBillionaireTools() {
+            alert("Accessing Billionaire Mindset Tools... Imagine AI-powered vision board generators, goal-setting systems, and virtual mentors!");
+        }
+
+        function showWealthSecrets() {
+            alert("Wealth Secrets Revealed: 1. Solve valuable problems 2. Leverage AI for automation 3. Build multiple income streams 4. Invest consistently 5. Never stop learning!");
+        }
+
+        function experienceLuxury() {
+            alert("Luxury Experience Activated: Visualizing your future lifestyle with AI... Imagine luxury homes, exotic travel, and financial freedom!");
+            document.body.style.background = "linear-gradient(to right, #000428, #004e92)";
+            setTimeout(() => {
+                document.body.style.background = "";
+            }, 2000);
+        }
+
         // Close panels when clicking outside
         document.addEventListener('click', function (e) {
             const panels = document.querySelectorAll('.content-panel');
-            const tricksBtn = document.getElementById('tricks-btn');
-            const techniquesBtn = document.getElementById('techniques-btn');
-            const hacksBtn = document.getElementById('hacks-btn');
+            const buttons = [
+                'tricks-btn', 'techniques-btn', 'hacks-btn',
+                'billionaire-btn', 'wealth-btn', 'luxury-btn'
+            ];
 
-            if (!e.target.closest('.content-panel') &&
-                !e.target.closest('#tricks-btn') &&
-                !e.target.closest('#techniques-btn') &&
-                !e.target.closest('#hacks-btn')) {
+            let isButton = false;
+            buttons.forEach(btn => {
+                if (e.target.closest(`#${btn}`)) {
+                    isButton = true;
+                }
+            });
+
+            if (!e.target.closest('.content-panel') && !isButton) {
                 panels.forEach(panel => {
                     panel.style.display = 'none';
                 });
@@ -1229,7 +1616,7 @@
 
         // Animate elements on scroll
         function animateOnScroll() {
-            const elements = document.querySelectorAll('.card, .youtube-container, #tricks li, #techniques li, #hacks li');
+            const elements = document.querySelectorAll('.card, .youtube-container, #tricks li, #techniques li, #hacks li, .billionaire-card');
 
             elements.forEach(element => {
                 const position = element.getBoundingClientRect().top;
@@ -1243,7 +1630,7 @@
         }
 
         // Initialize elements for animation
-        document.querySelectorAll('.card, .youtube-container, #tricks li, #techniques li, #hacks li').forEach(element => {
+        document.querySelectorAll('.card, .youtube-container, #tricks li, #techniques li, #hacks li, .billionaire-card').forEach(element => {
             element.style.opacity = 0;
             element.style.transform = 'translateY(20px)';
             element.style.transition = 'all 0.6s ease';
