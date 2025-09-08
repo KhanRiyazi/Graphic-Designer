@@ -45,3 +45,30 @@ Rizwan-Khan-Assets/
 ├── Blogs/
 │   └── Blogger-Links.md
 └── README.md
+
+
+Dell@DESKTOP-03NGJG4  ~/Desktop/Designer (main)
+$ curl -I https://khanriyazi.github.io/Graphic-Designer/
+HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 44431
+Server: GitHub.com
+Content-Type: text/html; charset=utf-8
+Last-Modified: Mon, 08 Sep 2025 09:02:30 GMT
+Access-Control-Allow-Origin: *
+Strict-Transport-Security: max-age=31556952
+ETag: "68be9ba6-ad8f"
+expires: Mon, 08 Sep 2025 09:14:31 GMT
+Cache-Control: max-age=600
+x-proxy-cache: MISS
+X-GitHub-Request-Id: E14F:2931C2:214651:27273A:68BE9C1D
+Accept-Ranges: bytes
+Age: 0
+Date: Mon, 08 Sep 2025 09:04:31 GMT
+Via: 1.1 varnish
+X-Served-By: cache-del21749-DEL
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1757322271.901981,VS0,VE341
+Vary: Accept-Encoding
+X-Fastly-Request-ID: 9a7f46b152d131bb26608fadf8fdfea418ac8601
