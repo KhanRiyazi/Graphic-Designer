@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workshop with Rizwan Ali | Maths & Computer Teacher</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4a90e2;
+            --secondary: #357ABD;
+            --accent1: #FF6B6B;
+            --accent2: #4ECDC4;
+            --accent3: #FFD166;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+
+        body {
+            line-height: 1.6;
+            background: var(--light);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Animated background elements */
+        .bg-bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-bubbles li {
+            position: absolute;
+            list-style: none;
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(74, 144, 226, 0.15);
+            bottom: -160px;
+            border-radius: 50%;
+            animation: square 25s infinite;
+            transition-timing-function: linear;
+        }
+
+        .bg-bubbles li:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            width: 80px;
+            height: 80px;
+        }
+
+        .bg-bubbles li:nth-child(2) {
+            left: 20%;
+            animation-delay: 2s;
+            animation-duration: 17s;
+            width: 60px;
+            height: 60px;
+        }
+
+        .bg-bubbles li:nth-child(3) {
+            left: 25%;
+            animation-delay: 4s;
+            width: 100px;
+            height: 100px;
+        }
+
+        .bg-bubbles li:nth-child(4) {
+            left: 40%;
+            animation-delay: 0s;
+            animation-duration: 22s;
+            width: 120px;
+            height: 120px;
+        }
+
+        .bg-bubbles li:nth-child(5) {
+            left: 70%;
+            width: 70px;
+            height: 70px;
+        }
+
+        .bg-bubbles li:nth-child(6) {
+            left: 80%;
+            animation-delay: 3s;
+            width: 90px;
+            height: 90px;
+        }
+
+        .bg-bubbles li:nth-child(7) {
+            left: 32%;
+            animation-delay: 6s;
+            width: 110px;
+            height: 110px;
+        }
+
+        .bg-bubbles li:nth-child(8) {
+            left: 55%;
+            animation-delay: 8s;
+            animation-duration: 18s;
+            width: 50px;
+            height: 50px;
+        }
+
+        .bg-bubbles li:nth-child(9) {
+            left: 25%;
+            animation-delay: 2s;
+            animation-duration: 20s;
+            width: 30px;
+            height: 30px;
+        }
+
+        .bg-bubbles li:nth-child(10) {
+            left: 90%;
+            animation-delay: 11s;
+            width: 80px;
+            height: 80px;
+        }
+
+        @keyframes square {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 50%;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 3rem 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .teacher-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .profile-info {
+            text-align: left;
+            max-width: 500px;
+        }
+
+        .profile-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .profile-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            background: var(--secondary);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 3rem 1.5rem;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent1), var(--accent3));
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .youtube-container {
+            margin: 3rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .youtube-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 0 0 12px 12px;
+        }
+
+        .video-description h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent1), var(--accent3));
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .subject-detail {
+            display: none;
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: #f5f9ff;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .suspension-btn {
+            position: fixed;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .suspension-btn:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #tricks-btn {
+            bottom: 200px;
+            background: var(--accent1);
+        }
+
+        #techniques-btn {
+            bottom: 120px;
+            background: var(--accent2);
+        }
+
+        #hacks-btn {
+            bottom: 40px;
+            background: var(--accent3);
+        }
+
+        .content-panel {
+            display: none;
+            position: fixed;
+            bottom: 40px;
+            right: 110px;
+            width: 350px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            z-index: 999;
+            max-height: 70vh;
+            overflow-y: auto;
+            animation: slideIn 0.4s ease;
+        }
+
+        .content-panel h3 {
+            margin-bottom: 1.2rem;
+            color: var(--dark);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .content-panel ul {
+            list-style-type: none;
+        }
+
+        .content-panel li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .content-panel li:before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .content-panel li:hover {
+            background: #f5f9ff;
+            padding-left: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: all 0.2s ease;
+        }
+
+        .close-btn:hover {
+            color: var(--dark);
+            transform: rotate(90deg);
+        }
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background: #fff;
+            color: var(--primary);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        button:hover {
+            background: #e0e0e0;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: var(--secondary);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: var(--accent3);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Workshop info section */
+        .workshop-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin: 2rem 0;
+            border-left: 5px solid var(--accent2);
+        }
+
+        .workshop-info h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            .teacher-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-info {
+                text-align: center;
+            }
+
+            nav {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .suspension-btn {
+                right: 20px;
+                width: 60px;
+                height: 60px;
+            }
+
+            .content-panel {
+                right: 20px;
+                width: calc(100% - 40px);
+                bottom: 100px;
+            }
+
+            #tricks-btn {
+                bottom: 180px;
+            }
+
+            #techniques-btn {
+                bottom: 110px;
+            }
+
+            #hacks-btn {
+                bottom: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated background -->
+    <ul class="bg-bubbles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>AI Workshop for Class 9 & 10</h1>
+            <p>Smart Tricks, Techniques & Hacks for Students</p>
+
+            <div class="teacher-profile">
+                <div class="profile-img">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="profile-info">
+                    <h2>Rizwan Ali</h2>
+                    <p>Maths & Computer Teacher | Content Creator | Developer</p>
+                    <div class="profile-links">
+                        <a href="https://www.youtube.com/@ThisOne-007"><i class="fab fa-youtube"></i> YouTube</a>
+                        <a href="https://github.com/KhanRiyazi"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="https://www.blogger.com/blog/posts/3329850273058131444"><i class="fab fa-blogger"></i>
+                            Blog</a>
+                        <a href="https://www.linkedin.com/in/rizwan-ali-389660156/"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#subjects"><i class="fas fa-book"></i> Subjects</a>
+        <a href="#youtube"><i class="fab fa-youtube"></i> Video Tutorials</a>
+        <a href="#tricks"><i class="fas fa-magic"></i> Tricks</a>
+        <a href="#techniques"><i class="fas fa-cogs"></i> Techniques</a>
+        <a href="#hacks"><i class="fas fa-tools"></i> Hacks</a>
+        <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+
+    <!-- YouTube Section -->
+    <section id="youtube">
+        <h2 class="section-title">Video Tutorials</h2>
+
+        <div class="youtube-container">
+            <div class="video-wrapper">
+                <!-- Replace with your actual YouTube embed code -->
+                <iframe src="https://www.youtube.com/embed/GIeTWgeTkbI?si=UN4iiRbmIplybfx4"
+                    title="AI Workshop Introduction" allowfullscreen></iframe>
+            </div>
+            <div class="video-description">
+                <h3>Introduction to AI Workshop</h3>
+                <p>In this video, I'll walk you through what to expect from this AI workshop and how to make the most of
+                    our learning platform.</p>
+            </div>
+        </div>
+
+        <div class="workshop-info">
+            <h3><i class="fas fa-info-circle"></i> Workshop Instructions</h3>
+            <p>Welcome students! During this workshop, we'll explore AI concepts together. Make sure to:</p>
+            <ul>
+                <li>Click on the floating buttons on the right to discover AI tricks, techniques and hacks</li>
+                <li>Explore each subject card to see how AI applies to different fields</li>
+                <li>Try the interactive demos to get hands-on experience</li>
+                <li>Ask questions through the contact form if you need help</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Subjects Section -->
+    <section id="subjects">
+        <h2 class="section-title">Subjects for Class 9 & 10</h2>
+        <div class="subjects">
+            <div class="card" onclick="toggleSubject('math')">
+                <i class="fas fa-calculator"></i>
+                <h3>Mathematics</h3>
+                <p>AI-powered problem solving</p>
+                <div id="math-detail" class="subject-detail">
+                    <p>Learn mathematical concepts with AI-powered visualizations and problem-solving techniques.</p>
+                    <button onclick="event.stopPropagation();launchLesson('math')"><i class="fas fa-play"></i> Start
+                        Learning</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleSubject('science')">
+                <i class="fas fa-flask"></i>
+                <h3>Science</h3>
+                <p>Interactive simulations</p>
+                <div id="science-detail" class="subject-detail">
+                    <p>Explore scientific concepts through interactive simulations and AI-generated experiments.</p>
+                    <button onclick="event.stopPropagation();launchLesson('science')"><i class="fas fa-play"></i> Start
+                        Learning</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleSubject('english')">
+                <i class="fas fa-language"></i>
+                <h3>English</h3>
+                <p>AI writing assistance</p>
+                <div id="english-detail" class="subject-detail">
+                    <p>Improve your language skills with AI-powered writing assistants and grammar tools.</p>
+                    <button onclick="event.stopPropagation();launchLesson('english')"><i class="fas fa-play"></i> Start
+                        Learning</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleSubject('computer')">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Computer Applications</h3>
+                <p>AI-guided coding</p>
+                <div id="computer-detail" class="subject-detail">
+                    <p>Master computer skills with AI-guided coding exercises and project-based learning.</p>
+                    <button onclick="event.stopPropagation();launchLesson('computer')"><i class="fas fa-play"></i> Start
+                        Learning</button>
+                </div>
+            </div>
+            <div class="card" onclick="toggleSubject('ai')">
+                <i class="fas fa-robot"></i>
+                <h3>AI Basics</h3>
+                <p>Interactive demos</p>
+                <div id="ai-detail" class="subject-detail">
+                    <p>Understand artificial intelligence fundamentals through interactive demos and projects.</p>
+                    <button onclick="event.stopPropagation();launchLesson('ai')"><i class="fas fa-play"></i> Start
+                        Learning</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tricks Section -->
+    <section id="tricks">
+        <h2 class="section-title">10 AI Tricks</h2>
+        <ul>
+            <li><i class="fas fa-check-circle"></i> Prompt Engineering: Ask AI clearly.</li>
+            <li><i class="fas fa-check-circle"></i> Step-by-step thinking.</li>
+            <li><i class="fas fa-check-circle"></i> Show 2–3 examples.</li>
+            <li><i class="fas fa-check-circle"></i> Control creativity (temperature).</li>
+            <li><i class="fas fa-check-circle"></i> Reverse prompting.</li>
+            <li><i class="fas fa-check-circle"></i> Persona switching.</li>
+            <li><i class="fas fa-check-circle"></i> Break text into chunks.</li>
+            <li><i class="fas fa-check-circle"></i> Roleplay scenarios.</li>
+            <li><i class="fas fa-check-circle"></i> Request output format.</li>
+            <li><i class="fas fa-check-circle"></i> Refine step by step.</li>
+        </ul>
+    </section>
+
+    <!-- Techniques Section -->
+    <section id="techniques">
+        <h2 class="section-title">10 AI Techniques</h2>
+        <ul>
+            <li><i class="fas fa-brain"></i> NLP for text.</li>
+            <li><i class="fas fa-eye"></i> Computer Vision.</li>
+            <li><i class="fas fa-sync-alt"></i> Reinforcement Learning.</li>
+            <li><i class="fas fa-exchange-alt"></i> Transfer Learning.</li>
+            <li><i class="fas fa-sliders-h"></i> Fine-Tuning Models.</li>
+            <li><i class="fas fa-project-diagram"></i> Vector Embeddings.</li>
+            <li><i class="fas fa-book"></i> RAG (AI + Docs).</li>
+            <li><i class="fas fa-user-friends"></i> Agent-based AI.</li>
+            <li><i class="fas fa-network-wired"></i> Federated Learning.</li>
+            <li><i class="fas fa-chart-line"></i> Explainable AI.</li>
+        </ul>
+    </section>
+
+    <!-- Hacks Section -->
+    <section id="hacks">
+        <h2 class="section-title">10 AI Hacks</h2>
+        <ul>
+            <li><i class="fas fa-tools"></i> Use free AI tools first.</li>
+            <li><i class="fas fa-layer-group"></i> Batch your requests.</li>
+            <li><i class="fas fa-bug"></i> AI for debugging code.</li>
+            <li><i class="fas fa-microphone"></i> Voice + AI assistants.</li>
+            <li><i class="fas fa-table"></i> AI in Google Sheets.</li>
+            <li><i class="fas fa-link"></i> LangChain for custom apps.</li>
+            <li><i class="fas fa-file-alt"></i> OCR to extract text.</li>
+            <li><i class="fas fa-calendar"></i> AI for scheduling.</li>
+            <li><i class="fas fa-puzzle-piece"></i> Mix AI tools together.</li>
+            <li><i class="fas fa-server"></i> Deploy with Streamlit/Flask.</li>
+        </ul>
+    </section>
+
+    <!-- Suspension Buttons -->
+    <div class="suspension-btn" id="tricks-btn">
+        <span>🧠</span>
+    </div>
+    <div class="suspension-btn" id="techniques-btn">
+        <span>⚙️</span>
+    </div>
+    <div class="suspension-btn" id="hacks-btn">
+        <span>💡</span>
+    </div>
+
+    <!-- Content Panels -->
+    <div class="content-panel" id="tricks-panel">
+        <span class="close-btn" onclick="closePanel('tricks-panel')">×</span>
+        <h3>AI Tricks Explained</h3>
+        <ul>
+            <li><strong>Prompt Engineering:</strong> Learn how to frame questions to get better AI responses</li>
+            <li><strong>Step-by-step thinking:</strong> Break down complex problems into manageable steps</li>
+            <li><strong>Examples:</strong> See practical demonstrations of each trick</li>
+            <li><strong>Practice:</strong> Try out each trick with guided exercises</li>
+        </ul>
+        <button onclick="launchInteractive('tricks')"><i class="fas fa-play"></i> Try Interactive Demo</button>
+    </div>
+
+    <div class="content-panel" id="techniques-panel">
+        <span class="close-btn" onclick="closePanel('techniques-panel')">×</span>
+        <h3>AI Techniques Explained</h3>
+        <ul>
+            <li><strong>NLP:</strong> How AI processes and understands human language</li>
+            <li><strong>Computer Vision:</strong> How AI interprets visual information</li>
+            <li><strong>Reinforcement Learning:</strong> AI learning through trial and error</li>
+            <li><strong>Practical Applications:</strong> Real-world uses of each technique</li>
+        </ul>
+        <button onclick="launchInteractive('techniques')"><i class="fas fa-play"></i> Try Interactive Demo</button>
+    </div>
+
+    <div class="content-panel" id="hacks-panel">
+        <span class="close-btn" onclick="closePanel('hacks-panel')">×</span>
+        <h3>AI Hacks Explained</h3>
+        <ul>
+            <li><strong>Tool Recommendations:</strong> Best free AI tools for students</li>
+            <li><strong>Efficiency Tips:</strong> How to save time with AI</li>
+            <li><strong>Code Help:</strong> Using AI for programming assignments</li>
+            <li><strong>Productivity:</strong> AI for scheduling and organization</li>
+        </ul>
+        <button onclick="launchInteractive('hacks')"><i class="fas fa-play"></i> Try Interactive Demo</button>
+    </div>
+
+    <!-- Call to Action -->
+    <section class="cta" id="contact">
+        <h2>Start Your AI Learning Journey Today!</h2>
+        <p>Join the workshop and transform how you learn with artificial intelligence</p>
+        <button onclick="showMessage()"><i class="fas fa-rocket"></i> Yes, I'm Ready 🚀</button>
+        <p id="cta-message" style="margin-top:1.5rem; font-weight:bold;"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 AI Learning Workshop | Designed and Developed by Rizwan Ali</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-blogger"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+    </footer>
+
+    <!-- Vanilla JS -->
+    <script>
+        function showMessage() {
+            document.getElementById("cta-message").innerText =
+                "Excellent! Check your email for workshop materials and let's begin your AI journey! 🎯";
+        }
+
+        // Smooth scrolling for nav
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                }
+            });
+        });
+
+        // Toggle subject details
+        function toggleSubject(subject) {
+            const detail = document.getElementById(`${subject}-detail`);
+            const allDetails = document.querySelectorAll('.subject-detail');
+
+            allDetails.forEach(item => {
+                if (item !== detail && item.style.display === 'block') {
+                    item.style.display = 'none';
+                }
+            });
+
+            detail.style.display = detail.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Suspension button functionality
+        document.getElementById('tricks-btn').addEventListener('click', function () {
+            togglePanel('tricks-panel');
+        });
+
+        document.getElementById('techniques-btn').addEventListener('click', function () {
+            togglePanel('techniques-panel');
+        });
+
+        document.getElementById('hacks-btn').addEventListener('click', function () {
+            togglePanel('hacks-panel');
+        });
+
+        function togglePanel(panelId) {
+            const panel = document.getElementById(panelId);
+            const allPanels = document.querySelectorAll('.content-panel');
+
+            allPanels.forEach(item => {
+                if (item !== panel && item.style.display === 'block') {
+                    item.style.display = 'none';
+                }
+            });
+
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function closePanel(panelId) {
+            document.getElementById(panelId).style.display = 'none';
+        }
+
+        function launchInteractive(type) {
+            alert(`Starting interactive ${type} demo! This would open a practical exercise in a real implementation.`);
+            // In a real implementation, this would launch an interactive module
+        }
+
+        function launchLesson(subject) {
+            alert(`Starting ${subject} lesson! This would open a learning module in a real implementation.`);
+            // In a real implementation, this would launch the subject lesson
+        }
+
+        // Close panels when clicking outside
+        document.addEventListener('click', function (e) {
+            const panels = document.querySelectorAll('.content-panel');
+            const tricksBtn = document.getElementById('tricks-btn');
+            const techniquesBtn = document.getElementById('techniques-btn');
+            const hacksBtn = document.getElementById('hacks-btn');
+
+            if (!e.target.closest('.content-panel') &&
+                !e.target.closest('#tricks-btn') &&
+                !e.target.closest('#techniques-btn') &&
+                !e.target.closest('#hacks-btn')) {
+                panels.forEach(panel => {
+                    panel.style.display = 'none';
+                });
+            }
+        });
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.card, .youtube-container');
+
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+
+                if (position < screenPosition) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize elements for animation
+        document.querySelectorAll('.card, .youtube-container').forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.6s ease';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        // Initial check
+        animateOnScroll();
+    </script>
+</body>
+
+</html>
