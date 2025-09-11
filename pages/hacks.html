@@ -1177,6 +1177,7 @@
     <!-- Header -->
     <header>
         <div class="header-content">
+            <h1>Students Information Support System</h1>
             <h1>AI Workshop for All Students</h1>
             <div class="billionaire-title">Building Billionaire Minds with AI</div>
             <p>Smart Tricks, Techniques & Hacks for Students of All Grades</p>
@@ -1193,7 +1194,8 @@
                     <div class="profile-links">
                         <a href="https://www.youtube.com/@ThisOne-007"><i class="fab fa-youtube"></i> YouTube</a>
                         <a href="https://github.com/KhanRiyazi"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://www.blogger.com/blog/posts/3329850273058131444"><i class="fab fa-blogger"></i>
+                        <a href="https://learning123hub.blogspot.com/2025/09/affiliate-marketing-exploration-blog.html"><i
+                                class="fab fa-blogger"></i>
                             Blog</a>
                         <a href="https://www.linkedin.com/in/rizwan-ali-389660156/"><i class="fab fa-linkedin"></i>
                             LinkedIn</a>
@@ -1405,7 +1407,7 @@
     </section>
 
     <!-- Suspension Buttons -->
-    <div class="suspension-btn" id="tricks-btn">
+    <!-- <div class="suspension-btn" id="tricks-btn">
         <span>🧠</span>
     </div>
     <div class="suspension-btn" id="techniques-btn">
@@ -1422,7 +1424,62 @@
     </div>
     <div class="suspension-btn" id="luxury-btn">
         <span>🏆</span>
+    </div> -->
+
+    <div id="suspension-container"
+        style="position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column-reverse; align-items: flex-end; gap: 12px;">
+        <!-- Main Branding Toggle Button -->
+        <div class="suspension-btn"
+            style="width: 65px; height: 65px; border-radius: 50%; background: #25c7d3; color: #fff; font-size: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);"
+            onclick="toggleButtons()">
+            <img src="/imgs/logo.png" alt="Logo" style="width: 55px; height: 55px;">
+        </div>
+
+        <!-- Hidden Action Buttons -->
+        <div id="tricks-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>🧠</span>
+        </div>
+
+        <div id="techniques-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>⚙️</span>
+        </div>
+
+        <div id="hacks-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>💡</span>
+        </div>
+
+        <div id="billionaire-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>👑</span>
+        </div>
+
+        <div id="wealth-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>💰</span>
+        </div>
+
+        <div id="luxury-btn" class="suspension-btn"
+            style="width: 55px; height: 55px; border-radius: 50%; background: #25D366; color: #fff; font-size: 24px; display: none; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            <span>🏆</span>
+        </div>
     </div>
+
+    <script>
+        function toggleButtons() {
+            const btns = document.querySelectorAll("#suspension-container .suspension-btn:not(:first-child)");
+            btns.forEach((btn, index) => {
+                if (btn.style.display === "none") {
+                    setTimeout(() => { btn.style.display = "flex"; }, index * 120); // smooth popup
+                } else {
+                    setTimeout(() => { btn.style.display = "none"; }, index * 120);
+                }
+            });
+        }
+    </script>
+
 
     <!-- WhatsApp Button -->
     <div class="whatsapp-btn" id="whatsapp-button">
