@@ -4,25 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EliteAffiliate | Premium Affiliate Marketing Hub</title>
+    <title>Rizwan Ali | Digital Growth Expert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --gray: #95a5a6;
-            --dark-bg: #1a2530;
-            --card-bg: #fff;
-            --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
+            --primary: #2563eb;
+            --secondary: #7e22ce;
+            --accent: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -32,39 +26,43 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text-dark);
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
         }
 
         .container {
-            width: 100%;
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-bg) 100%);
-            color: white;
-            padding: 1.2rem 0;
-            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 0.5rem 0;
         }
 
         nav {
@@ -74,921 +72,1046 @@
         }
 
         .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 20px;
-            color: white;
-        }
-
-        .logo-text {
             font-size: 1.8rem;
             font-weight: 700;
+            color: var(--primary);
         }
 
-        .logo-text span {
-            color: var(--accent);
+        .logo span {
+            color: var(--secondary);
         }
 
         .nav-links {
             display: flex;
-            list-style: none;
             gap: 2rem;
         }
 
         .nav-links a {
-            color: white;
-            text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 1rem;
+            transition: var(--transition);
             position: relative;
         }
 
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .nav-links a:hover:after {
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
             width: 100%;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-cta {
-            background: var(--accent);
-            color: white;
-            padding: 0.6rem 1.5rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .nav-cta:hover {
-            background: #c0392b;
-            transform: translateY(-2px);
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            padding: 5rem 0;
-            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%233498db" opacity="0.1"/><path d="M0 0L100 100" stroke="%233498db" stroke-width="2" opacity="0.2"/></svg>');
-            background-size: cover;
-            color: white;
-            text-align: center;
+            padding: 8rem 0 5rem;
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(126, 34, 206, 0.1) 100%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
         }
 
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-            color: var(--light);
+        .hero h1 span {
+            color: var(--primary);
         }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 90%;
         }
 
         .btn {
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
-        }
-
-        .btn-primary:hover {
-            background: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.5);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 4rem 0;
-            background: white;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .stat-card {
-            padding: 2rem;
-            border-radius: 12px;
-            background: var(--light);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-text {
-            color: var(--text-light);
-            font-weight: 600;
-        }
-
-        /* Programs Section */
-        .programs {
-            padding: 5rem 0;
-            background: #f8f9fa;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3.5rem;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            position: relative;
             display: inline-block;
-            padding-bottom: 15px;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
         }
 
-        .section-header h2:after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--accent);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
         }
 
-        .section-header p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 1rem auto 0;
-            font-size: 1.1rem;
+        .floating-panel {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            width: 70px;
+            transition: var(--transition);
+            z-index: 999;
+            overflow: hidden;
         }
 
-        .filters {
+        .floating-panel:hover {
+            width: 320px;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .panel-header i {
+            font-size: 24px;
+            color: var(--primary);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .panel-header h3 {
+            white-space: nowrap;
+            font-size: 16px;
+            color: var(--dark);
+        }
+
+        .technique-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 10px;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .technique-item:hover {
+            background-color: #f1f5f9;
+            transform: translateX(5px);
+        }
+
+        .technique-item i {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .technique-item span {
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .profile-container {
+            width: 380px;
+            height: 380px;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 5px solid white;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: 'Workshop Photo';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .social-buttons {
+            display: flex;
             gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
             margin-bottom: 3rem;
         }
 
-        .filter-btn {
-            padding: 0.8rem 1.8rem;
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--text-light);
-            transition: all 0.3s ease;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--secondary);
-            color: white;
-            border-color: var(--secondary);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
-        }
-
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .program-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-        }
-
-        .program-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--success);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .program-header {
-            height: 180px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
+        .section-title h2 {
             font-size: 2.5rem;
             position: relative;
-            overflow: hidden;
+            display: inline-block;
+            padding-bottom: 1rem;
         }
 
-        .program-header:after {
+        .section-title h2::after {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: 100% 100%;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
 
-        .program-content {
-            padding: 1.8rem;
+        /* About */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .program-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-        }
-
-        .program-content p {
-            color: var(--text-light);
+        .about-text h3 {
+            font-size: 2rem;
             margin-bottom: 1.5rem;
-            font-size: 0.95rem;
         }
 
-        .program-meta {
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .skills {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .program-meta span {
-            background: var(--light);
-            padding: 0.4rem 1rem;
+        .skill {
+            padding: 0.5rem 1.5rem;
+            background-color: #eef2ff;
             border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--text-light);
-            font-weight: 600;
+            font-weight: 500;
+            color: var(--primary);
         }
 
-        .program-link {
-            display: block;
-            text-align: center;
-            background: var(--secondary);
-            color: white;
-            padding: 0.9rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        /* Services */
+        .services {
+            background-color: #f1f5f9;
         }
 
-        .program-link:hover {
-            background: var(--primary);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
-        }
-
-        /* Resources Section */
-        .resources {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .resources-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
-        .resource-card {
-            background: var(--light);
-            border-radius: 15px;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
+        .service-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
         }
 
-        .resource-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .resource-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-            color: white;
-        }
-
-        .resource-card h3 {
-            font-size: 1.4rem;
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
             margin-bottom: 1rem;
         }
 
-        .resource-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
+        .service-card h3 {
+            margin-bottom: 1rem;
         }
 
-        .resource-link {
-            color: var(--secondary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
+        /* Growth Techniques Section */
+        .techniques {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
         }
 
-        .resource-link:hover {
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .technique-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .technique-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
+            transition: var(--transition);
+        }
+
+        .technique-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .technique-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .technique-icon {
+            font-size: 2.5rem;
             color: var(--primary);
-            gap: 12px;
+            margin-bottom: 1rem;
         }
 
-        /* CTA Section */
-        .cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            color: white;
-            text-align: center;
+        .technique-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
         }
 
-        .cta h2 {
-            font-size: 2.8rem;
+        .technique-card p {
+            color: var(--gray);
             margin-bottom: 1.5rem;
         }
 
-        .cta p {
+        .technique-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #eef2ff;
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-img {
+            height: 200px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact {
+            background-color: #f1f5f9;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
         }
 
         /* Footer */
         footer {
-            background: var(--dark-bg);
+            background-color: var(--dark);
             color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 0.8rem;
-        }
-
-        .footer-column h3:after {
-            content: '';
-            position: absolute;
-            width: 40px;
-            height: 3px;
-            background: var(--accent);
-            bottom: 0;
-            left: 0;
-        }
-
-        .footer-column p {
-            opacity: 0.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-column ul {
-            list-style: none;
-        }
-
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-column ul li a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer-column ul li a:hover {
-            color: white;
-            gap: 12px;
+            padding: 3rem 0;
+            text-align: center;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
 
-        .social-links a {
+        .social-link {
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
             display: flex;
-            align-items: center;
             justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            align-items: center;
+            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            background: var(--secondary);
+        .social-link:hover {
+            background-color: var(--primary);
             transform: translateY(-3px);
         }
 
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #bdc3c7;
-            font-size: 0.9rem;
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 5s ease-in-out infinite;
         }
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 3rem;
             }
 
-            .nav-links {
-                gap: 1.5rem;
+            .hero p {
+                margin: 0 auto 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-panel {
+                display: none;
+            }
+
+            .social-buttons {
+                justify-content: center;
             }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.3rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             }
 
-            .programs-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+            .nav-links.active {
+                display: flex;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .menu-btn {
+                display: block;
             }
-        }
 
-        .animated {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
 
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
+            .profile-container {
+                width: 280px;
+                height: 280px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Floating Techniques Panel -->
+    <div class="floating-panel">
+        <div class="panel-header">
+            <i class="fas fa-lightbulb"></i>
+            <h3>Growth Techniques</h3>
+        </div>
+
+        <a
+            href="https://newsinitiative.withgoogle.com/en-gb/resources/trainings/youtube-creator-academy-improve-your-youtube-skills/?utm_source=chatgpt.com">
+            <div class="technique-item">
+                <i class="fas fa-bolt"></i>
+                <span>Social Media Hacks</span>
+            </div>
+        </a>
+
+        <a href="https://www.shopify.com/blog/affiliate-marketing?utm_source=chatgpt.com">
+            <div class="technique-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Affiliate Marketing Strategies</span>
+            </div>
+        </a>
+
+        <a href="https://www.godaddy.com/resources/skills/how-to-make-money-online-from-home?utm_source=chatgpt.com">
+            <div class="technique-item">
+                <i class="fas fa-dollar-sign"></i>
+                <span>Money Making Techniques</span>
+            </div>
+        </a>
+
+        <a
+            href="https://www.braze.com/resources/articles/the-ultimate-guide-to-growth-marketing?utm_source=chatgpt.com">
+            <div class="technique-item">
+                <i class="fas fa-users"></i>
+                <span>Audience Growth Hacks</span>
+            </div>
+        </a>
+
+        <a href="https://www.demandcurve.com/blog/viral-marketing?utm_source=chatgpt.com">
+            <div class="technique-item">
+                <i class="fas fa-rocket"></i>
+                <span>Viral Content Formulas</span>
+            </div>
+        </a>
+    </div>
+
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <div class="logo-img">EA</div>
-                    <div class="logo-text">Elite<span>Affiliate</span></div>
-                </div>
+                <a href="#" class="logo">Rizwan<span>Ali</span></a>
                 <ul class="nav-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Programs</a></li>
-                    <li><a href="#">Resources</a></li>
-                    <li><a href="#">Success Stories</a></li>
-                    <li><a href="#">Agency</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#techniques">Techniques</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="#" class="nav-cta">Join Now</a>
+                <div class="menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
-            <h1 class="animated">Turn Clicks Into Commissions & Build Your Empire</h1>
-            <p class="animated delay-1">Access the world's most profitable affiliate programs and transform your digital
-                marketing into a revenue-generating machine</p>
-            <div class="hero-buttons animated delay-2">
-                <a href="#" class="btn btn-primary"><i class="fas fa-rocket"></i> Explore Programs</a>
-                <a href="#" class="btn btn-secondary"><i class="fas fa-crown"></i> Premium Access</a>
-            </div>
-        </div>
-    </section>
+            <div class="hero-content">
+                <h1>Digital Growth <span>Circle of Influence</span></h1>
+                <p>I leverage cutting-edge techniques to create digital experiences that generate circles of influence
+                    and revenue across social media platforms.</p>
+                <a href="#contact" class="btn">Get Growth Strategies</a>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card animated">
-                    <div class="stat-number">$12.5M+</div>
-                    <div class="stat-text">Earned By Our Affiliates</div>
-                </div>
-                <div class="stat-card animated delay-1">
-                    <div class="stat-number">250+</div>
-                    <div class="stat-text">Premium Programs</div>
-                </div>
-                <div class="stat-card animated delay-2">
-                    <div class="stat-number">15K+</div>
-                    <div class="stat-text">Active Affiliates</div>
-                </div>
-                <div class="stat-card animated delay-3">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-text">Success Rate</div>
+                <div class="social-buttons">
+                    <a href="https://www.linkedin.com/in/rizwan-ali-389660156/" class="social-btn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/KhanRiyazi" class="social-btn"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/RizwanA96852028" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/rizwanrka8268/" class="social-btn"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@ThisOne-007" class="social-btn"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Programs Section -->
-    <section class="programs">
-        <div class="container">
-            <div class="section-header animated">
-                <h2>Premium Affiliate Programs</h2>
-                <p>Hand-selected programs with high conversions and industry-leading commissions</p>
-            </div>
-
-            <div class="filters animated delay-1">
-                <button class="filter-btn active">All Programs</button>
-                <button class="filter-btn">High Commission</button>
-                <button class="filter-btn">Recurring</button>
-                <button class="filter-btn">Top Converting</button>
-                <button class="filter-btn">Newly Added</button>
-            </div>
-
-            <div class="programs-grid">
-                <div class="program-card animated">
-                    <div class="program-badge">Featured</div>
-                    <div class="program-header">
-                        <i class="fas fa-shopping-bag"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>Amazon Associates</h3>
-                        <p>World's largest e-commerce affiliate program with millions of products and trusted brand
-                            recognition.</p>
-                        <div class="program-meta">
-                            <span>E-Commerce</span>
-                            <span>1-10% Commission</span>
-                        </div>
-                        <a href="https://affiliate-program.amazon.com/" class="program-link">Explore Program</a>
-                    </div>
-                </div>
-
-                <div class="program-card animated delay-1">
-                    <div class="program-badge">Hot</div>
-                    <div class="program-header">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>Shopify Partners</h3>
-                        <p>Earn up to $150 for each merchant you refer to the world's leading e-commerce platform.</p>
-                        <div class="program-meta">
-                            <span>SaaS</span>
-                            <span>Recurring Revenue</span>
-                        </div>
-                        <a href="https://www.shopify.com/affiliates" class="program-link">Explore Program</a>
-                    </div>
-                </div>
-
-                <div class="program-card animated delay-2">
-                    <div class="program-header">
-                        <i class="fas fa-plane"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>Booking.com Affiliate</h3>
-                        <p>Earn generous commissions for referring travelers to the world's leading accommodation site.
-                        </p>
-                        <div class="program-meta">
-                            <span>Travel</span>
-                            <span>25-40% Commission</span>
-                        </div>
-                        <a href="https://www.booking.com/affiliate-program/" class="program-link">Explore Program</a>
-                    </div>
-                </div>
-
-                <div class="program-card animated">
-                    <div class="program-badge">Featured</div>
-                    <div class="program-header">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>Semrush Affiliate</h3>
-                        <p>Earn up to $200 per referral for the all-in-one marketing toolkit with industry-leading
-                            commissions.</p>
-                        <div class="program-meta">
-                            <span>Marketing</span>
-                            <span>High Payout</span>
-                        </div>
-                        <a href="https://www.semrush.com/affiliate-program/" class="program-link">Explore Program</a>
-                    </div>
-                </div>
-
-                <div class="program-card animated delay-1">
-                    <div class="program-header">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>ConvertKit Creator</h3>
-                        <p>Recurring 30% commission for every customer you refer to the email marketing platform for
-                            creators.</p>
-                        <div class="program-meta">
-                            <span>Email Marketing</span>
-                            <span>30% Recurring</span>
-                        </div>
-                        <a href="https://convertkit.com/affiliate" class="program-link">Explore Program</a>
-                    </div>
-                </div>
-
-                <div class="program-card animated delay-2">
-                    <div class="program-badge">New</div>
-                    <div class="program-header">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <div class="program-content">
-                        <h3>Bluehost Affiliate</h3>
-                        <p>Earn $65+ for every referral to one of the world's largest web hosting providers.</p>
-                        <div class="program-meta">
-                            <span>Web Hosting</span>
-                            <span>High Conversion</span>
-                        </div>
-                        <a href="https://www.bluehost.com/affiliates" class="program-link">Explore Program</a>
+            <div class="hero-image">
+                <div class="profile-container floating">
+                    <div class="profile-image">
+                        <img src="../imgs/workshop.jpg" alt="Rizwan Ali"
+                            style="width:100%; height:100%; object-fit: cover; border-radius: 50%;">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section class="resources">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <div class="section-header animated">
-                <h2>Affiliate Marketing Resources</h2>
-                <p>Everything you need to start, scale, and succeed in affiliate marketing</p>
+            <div class="section-title">
+                <h2>About Me</h2>
             </div>
-
-            <div class="resources-grid">
-                <div class="resource-card animated">
-                    <div class="resource-icon">
-                        <i class="fas fa-graduation-cap"></i>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Creating Digital Influence & Revenue Streams</h3>
+                    <p>Hello! I'm Rizwan Ali, a growth expert with expertise in creating digital systems that generate
+                        both influence and income. My unique combination of technical and marketing skills allows me to
+                        build complete digital ecosystems.</p>
+                    <p>I specialize in creating "circles of influence" - digital solutions that not only generate
+                        engagement but also create sustainable revenue streams through affiliate marketing, digital
+                        products, and growth hacking techniques.</p>
+                    <div class="skills">
+                        <div class="skill">Growth Hacking</div>
+                        <div class="skill">Affiliate Marketing</div>
+                        <div class="skill">Python Automation</div>
+                        <div class="skill">Content Strategy</div>
+                        <div class="skill">Social Media</div>
+                        <div class="skill">AI Integration</div>
+                        <div class="skill">Revenue Optimization</div>
+                        <div class="skill">Audience Building</div>
                     </div>
-                    <h3>Learning Academy</h3>
-                    <p>Comprehensive courses from beginner to advanced strategies for maximizing your affiliate
-                        earnings.</p>
-                    <a href="#" class="resource-link">Access Training <i class="fas fa-arrow-right"></i></a>
                 </div>
-
-                <div class="resource-card animated delay-1">
-                    <div class="resource-icon">
-                        <i class="fas fa-tools"></i>
+                <div class="about-image">
+                    <div class="profile-container">
+                        <div class="profile-image">
+                            <div class="profile-image">
+                                <img src="../imgs/workshop.jpg" alt="Rizwan Ali"
+                                    style="width:100%; height:100%; object-fit: cover; border-radius: 50%;">
+                            </div>
+                        </div>
                     </div>
-                    <h3>Marketing Tools</h3>
-                    <p>Curated collection of tools for SEO, content creation, and analytics to boost your performance.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Techniques Section -->
+    <section id="techniques" class="techniques">
+        <div class="container">
+            <div class="section-title">
+                <h2>Growth Techniques</h2>
+            </div>
+            <div class="techniques-grid">
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <h3>Affiliate Marketing Systems</h3>
+                    <p>Automated systems that generate passive income through strategic affiliate partnerships and
+                        content integration.</p>
+                    <span class="technique-tag">Revenue Generation</span>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-viruses"></i>
+                    </div>
+                    <h3>Viral Content Formulas</h3>
+                    <p>Data-backed strategies for creating content that spreads rapidly across social platforms,
+                        expanding your reach exponentially.</p>
+                    <span class="technique-tag">Audience Growth</span>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI-Powered Automation</h3>
+                    <p>Leverage artificial intelligence to automate content creation, customer engagement, and revenue
+                        optimization.</p>
+                    <span class="technique-tag">Efficiency</span>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Targeted Audience Building</h3>
+                    <p>Strategic approaches to attract and retain highly engaged audience segments that convert into
+                        customers.</p>
+                    <span class="technique-tag">Conversion Focused</span>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Monetization Strategies</h3>
+                    <p>Multiple revenue stream development including digital products, services, and partnership
+                        opportunities.</p>
+                    <span class="technique-tag">Revenue Diversification</span>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">
+                        <i class="fas fa-analytics"></i>
+                    </div>
+                    <h3>Data-Driven Optimization</h3>
+                    <p>Using analytics and metrics to continuously improve content performance and conversion rates.</p>
+                    <span class="technique-tag">Performance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>Growth-Focused Development</h3>
+                    <p>Websites and applications designed not just to function, but to convert and grow your audience.
                     </p>
-                    <a href="#" class="resource-link">Explore Tools <i class="fas fa-arrow-right"></i></a>
                 </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Conversion-Centered Design</h3>
+                    <p>Visual designs that guide users toward actions that grow your business and increase revenue.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3>Automation Systems</h3>
+                    <p>Python-powered solutions that automate marketing, content distribution, and revenue processes.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Growth Workshops</h3>
+                    <p>Hands-on training sessions teaching money-making techniques and digital growth strategies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="resource-card animated delay-2">
-                    <div class="resource-icon">
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Growth Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-funnel-dollar"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Affiliate Revenue System</h3>
+                        <p>Automated content system that generated $25k+ in affiliate revenue in first 6 months.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Viral Content Platform</h3>
+                        <p>Content management system that increased social shares by 327% for clients.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI-Powered Marketing</h3>
+                        <p>Artificial intelligence system that optimizes ad spend and increases conversion rates.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Performance Tracking</h3>
-                    <p>Advanced analytics to monitor your campaigns, conversions, and earnings in real-time.</p>
-                    <a href="#" class="resource-link">View Analytics <i class="fas fa-arrow-right"></i></a>
+                    <div class="project-content">
+                        <h3>Revenue Growth Dashboard</h3>
+                        <p>Analytics platform that visualizes income streams and identifies growth opportunities.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="animated">Ready to Launch Your Affiliate Empire?</h2>
-            <p class="animated delay-1">Join thousands of successful affiliates who are generating passive income with
-                our premium programs and resources</p>
-            <a href="#" class="btn btn-primary animated delay-2"><i class="fas fa-star"></i> Get Started Today</a>
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>growth@rizwanali.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+123 456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Digital Nomad - Available Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">How can I help you grow?</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Get Growth Strategies</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>EliteAffiliate</h3>
-                    <p>Your premier destination for high-converting affiliate programs and resources to build your
-                        online income.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Top Programs</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Amazon Associates</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Shopify Partners</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Booking.com Affiliate</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Semrush Affiliate</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> ConvertKit Creator</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Affiliate Marketing Guide</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Niche Selection Tool</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Commission Calculator</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Content Strategy</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> SEO Optimization</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-envelope"></i> support@eliteaffiliate.com</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> New York, NY</a></li>
-                    </ul>
-                </div>
+            <div class="logo">Rizwan<span>Ali</span></div>
+            <p>Creating circles of influence and revenue through digital growth</p>
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2023 EliteAffiliate. All rights reserved. | Designed for future billionaires</p>
-            </div>
+            <p>&copy; 2023 Rizwan Ali. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Animation on scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            const animatedElements = document.querySelectorAll('.animated');
+        // Simple form validation
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                alert('Thanks for your message! I\'ll get back to you soon with growth strategies.');
+                this.reset();
+            }
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', function () {
+            navLinks.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
                     }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            animatedElements.forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
-                observer.observe(element);
-            });
-
-            // Filter functionality
-            const filterButtons = document.querySelectorAll('.filter-btn');
-
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    // In a real implementation, you would filter the programs here
-                    console.log('Filtering by: ' + this.textContent);
-                });
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 100,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                }
             });
         });
     </script>
