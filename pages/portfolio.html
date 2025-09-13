@@ -4,19 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Digital Growth Circle - Premier digital marketing agency specializing in growth hacking, affiliate marketing, and revenue generation strategies.">
+    <meta name="keywords"
+        content="digital marketing, growth hacking, affiliate marketing, social media marketing, SEO, automation">
+    <meta name="author" content="Digital Growth Circle">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:title" content="Digital Growth Circle | Marketing Agency">
+    <meta property="og:description"
+        content="We leverage cutting-edge techniques to create digital experiences that generate circles of influence and revenue across social media platforms.">
+    <meta property="og:image" content="https://yourdomain.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdomain.com/">
+    <meta property="twitter:title" content="Digital Growth Circle | Marketing Agency">
+    <meta property="twitter:description"
+        content="We leverage cutting-edge techniques to create digital experiences that generate circles of influence and revenue across social media platforms.">
+    <meta property="twitter:image" content="https://yourdomain.com/images/og-image.jpg">
+
     <title>Digital Growth Circle | Marketing Agency</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- AOS Library for Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+
     <style>
         :root {
             --primary: #2563eb;
+            --primary-dark: #1d4ed8;
             --secondary: #7e22ce;
             --accent: #10b981;
             --dark: #1e293b;
             --light: #f8fafc;
             --gray: #64748b;
             --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 12px;
         }
 
         * {
@@ -31,6 +68,7 @@
             color: var(--dark);
             background-color: var(--light);
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
         a {
@@ -57,13 +95,15 @@
             width: 100%;
             z-index: 1000;
             background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             padding: 1rem 0;
             transition: var(--transition);
         }
 
         header.scrolled {
-            padding: 0.5rem 0;
+            padding: 0.7rem 0;
         }
 
         nav {
@@ -246,14 +286,64 @@
             color: var(--gray);
         }
 
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .action-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-btn.primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .action-btn.accent {
+            background: var(--accent);
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .action-btn.primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .action-btn.secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Floating Panel */
         .floating-panel {
             position: fixed;
             right: 20px;
             top: 50%;
             transform: translateY(-50%);
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             padding: 15px;
             width: 70px;
             transition: var(--transition);
@@ -346,7 +436,7 @@
             position: relative;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow);
             border: 5px solid white;
         }
 
@@ -458,6 +548,13 @@
             border-radius: 50px;
             font-weight: 500;
             color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .skill:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
         }
 
         /* Services */
@@ -474,16 +571,19 @@
         .service-card {
             background-color: white;
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: var(--radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .service-card::before {
@@ -506,6 +606,32 @@
             margin-bottom: 1rem;
         }
 
+        .service-card p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .service-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .service-link:hover {
+            color: var(--secondary);
+        }
+
+        .service-link:hover i {
+            transform: translateX(3px);
+        }
+
         /* Clients Section */
         .clients {
             background-color: white;
@@ -524,11 +650,16 @@
             opacity: 0.7;
             transition: var(--transition);
             filter: grayscale(100%);
+            padding: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
         }
 
         .client-logo:hover {
             opacity: 1;
             filter: grayscale(0%);
+            transform: translateY(-3px);
         }
 
         /* Growth Techniques Section */
@@ -545,11 +676,14 @@
         .technique-card {
             background-color: white;
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: var(--radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .technique-card::before {
@@ -565,7 +699,7 @@
 
         .technique-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .technique-card:hover::before {
@@ -587,6 +721,7 @@
         .technique-card p {
             color: var(--gray);
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .technique-tag {
@@ -608,20 +743,23 @@
 
         .project-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .project-img {
             height: 200px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             display: flex;
             justify-content: center;
             align-items: center;
@@ -631,10 +769,39 @@
 
         .project-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .project-content h3 {
             margin-bottom: 0.5rem;
+        }
+
+        .project-content p {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .project-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .project-link:hover {
+            color: var(--secondary);
+        }
+
+        .project-link:hover i {
+            transform: translateX(3px);
         }
 
         /* Testimonials */
@@ -651,9 +818,12 @@
         .testimonial-card {
             background-color: white;
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: var(--radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .testimonial-card::before {
@@ -670,6 +840,7 @@
         .testimonial-content {
             position: relative;
             z-index: 2;
+            flex-grow: 1;
         }
 
         .testimonial-text {
@@ -690,6 +861,13 @@
             background-color: #eef2ff;
             margin-right: 1rem;
             overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .author-details h4 {
@@ -734,12 +912,13 @@
             align-items: center;
             color: white;
             font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         .contact-form {
             background-color: white;
             padding: 2rem;
-            border-radius: 10px;
+            border-radius: var(--radius);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
@@ -759,6 +938,13 @@
             border: 1px solid #ddd;
             border-radius: 5px;
             font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         textarea.form-control {
@@ -866,15 +1052,18 @@
 
         .blog-card {
             background-color: white;
-            border-radius: 10px;
+            border-radius: var(--radius);
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow);
         }
 
         .blog-img {
@@ -889,6 +1078,9 @@
 
         .blog-content {
             padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .blog-content h3 {
@@ -900,6 +1092,7 @@
             color: var(--gray);
             margin-bottom: 1rem;
             font-size: 0.9rem;
+            flex-grow: 1;
         }
 
         .blog-link {
@@ -961,6 +1154,76 @@
             font-family: inherit;
         }
 
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 997;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
         /* Animations */
         @keyframes float {
             0% {
@@ -978,6 +1241,39 @@
 
         .floating {
             animation: float 5s ease-in-out infinite;
+        }
+
+        /* Cookie Consent */
+        .cookie-consent {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 15px;
+            transform: translateY(150%);
+            transition: transform 0.5s ease;
+        }
+
+        .cookie-consent.visible {
+            transform: translateY(0);
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
         }
 
         /* Responsive Design */
@@ -1027,6 +1323,10 @@
 
             .newsletter-form {
                 flex-direction: column;
+            }
+
+            .action-buttons {
+                justify-content: center;
             }
         }
 
@@ -1123,6 +1423,25 @@
             .panel-toggle {
                 display: flex;
             }
+
+            .cookie-consent {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-text {
+                min-width: auto;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .back-to-top {
+                left: 20px;
+                bottom: 80px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1164,11 +1483,38 @@
                 right: 10px;
                 left: 10px;
             }
+
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Loading Animation -->
+    <div class="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Cookie Consent -->
+    <div class="cookie-consent">
+        <div class="cookie-text">
+            <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of
+                cookies.</p>
+        </div>
+        <div class="cookie-buttons">
+            <button class="btn" id="accept-cookies">Accept</button>
+            <button class="btn-outline" id="reject-cookies">Reject</button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- Floating Techniques Panel -->
     <div class="floating-panel">
         <div class="panel-header">
@@ -1246,56 +1592,34 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
                 <h1>Digital Growth <span>Circle of Influence</span></h1>
                 <p>We leverage cutting-edge techniques to create digital experiences that generate circles of influence
                     and revenue across social media platforms for businesses worldwide.</p>
 
-                <!---------------buttons------------->
-                <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0;">
-                    <a href="#contact"
-                        style="display: inline-block; padding: 12px 28px; background: #2563eb; color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                <div class="action-buttons">
+                    <a href="#contact" class="action-btn primary">
                         Get Growth Strategies
                     </a>
-
-                    <a href="#services"
-                        style="display: inline-block; padding: 12px 28px; background: transparent; border: 2px solid #2563eb; color: #2563eb; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                    <a href="#services" class="action-btn secondary">
                         Our Services
                     </a>
-
-                    <a href="#blog-resources"
-                        style="display: inline-block; padding: 12px 28px; background: #10b981; color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                    <a href="#blog-resources" class="action-btn accent">
                         Blog Resources
                     </a>
                 </div>
 
-                <script>
-                    // Add simple hover effects
-                    document.querySelectorAll('a').forEach(button => {
-                        button.onmouseenter = () => {
-                            button.style.transform = 'translateY(-2px)';
-                            button.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
-                        };
-                        button.onmouseleave = () => {
-                            button.style.transform = 'translateY(0)';
-                            button.style.boxShadow = 'none';
-                        };
-                    });
-                </script>
-
-                <!---------------buttons------------->
-
                 <div class="stats-container">
-                    <div class="stat-item">
-                        <div class="stat-number">200+</div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="stat-number" id="client-counter">0</div>
                         <div class="stat-label">Clients Worldwide</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">85%</div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="stat-number" id="roi-counter">0</div>
                         <div class="stat-label">ROI Increase</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">300%</div>
+                    <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="stat-number" id="growth-counter">0</div>
                         <div class="stat-label">Average Growth</div>
                     </div>
                 </div>
@@ -1310,7 +1634,7 @@
                     <a href="https://www.youtube.com/@ThisOne-007" class="social-btn"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
                 <div class="profile-container floating">
                     <div class="profile-image">
                         <img src="../imgs/workshop.jpg" alt="Digital Growth Agency">
@@ -1323,16 +1647,21 @@
     <!-- Clients Section -->
     <section id="clients" class="clients">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Our Clients</h2>
                 <p class="section-subtitle">We've helped businesses of all sizes achieve their digital growth goals</p>
             </div>
             <div class="clients-grid">
-                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+1" alt="Client 1" class="client-logo">
-                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+2" alt="Client 2" class="client-logo">
-                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+3" alt="Client 3" class="client-logo">
-                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+4" alt="Client 4" class="client-logo">
-                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+5" alt="Client 5" class="client-logo">
+                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+1" alt="Client 1" class="client-logo"
+                    data-aos="fade-up" data-aos-delay="100">
+                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+2" alt="Client 2" class="client-logo"
+                    data-aos="fade-up" data-aos-delay="200">
+                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+3" alt="Client 3" class="client-logo"
+                    data-aos="fade-up" data-aos-delay="300">
+                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+4" alt="Client 4" class="client-logo"
+                    data-aos="fade-up" data-aos-delay="400">
+                <img src="https://placehold.co/200x60/2563eb/FFFFFF?text=Client+5" alt="Client 5" class="client-logo"
+                    data-aos="fade-up" data-aos-delay="500">
             </div>
         </div>
     </section>
@@ -1340,12 +1669,12 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>About Us</h2>
                 <p class="section-subtitle">Creating digital influence and revenue streams for businesses worldwide</p>
             </div>
             <div class="about-content">
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-right">
                     <h3>Creating Digital Influence & Revenue Streams</h3>
                     <p>Digital Growth Circle is a premier digital marketing agency with expertise in creating digital
                         systems that generate both influence and income. Our unique combination of technical and
@@ -1364,7 +1693,7 @@
                         <div class="skill">Audience Building</div>
                     </div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-aos="fade-left">
                     <div class="profile-container">
                         <div class="profile-image">
                             <img src="../imgs/me.png" alt="About Digital Growth Circle">
@@ -1378,54 +1707,60 @@
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Our Services</h2>
                 <p class="section-subtitle">Comprehensive digital marketing solutions for businesses of all sizes</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
                     <h3>Growth-Focused Development</h3>
                     <p>Websites and applications designed not just to function, but to convert and grow your audience.
                     </p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3>Conversion-Centered Design</h3>
                     <p>Visual designs that guide users toward actions that grow your business and increase revenue.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-icon">
                         <i class="fab fa-python"></i>
                     </div>
                     <h3>Automation Systems</h3>
                     <p>Python-powered solutions that automate marketing, content distribution, and revenue processes.
                     </p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="service-icon">
                         <i class="fas fa-chalkboard-teacher"></i>
                     </div>
                     <h3>Growth Workshops</h3>
                     <p>Hands-on training sessions teaching money-making techniques and digital growth strategies.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="service-icon">
                         <i class="fas fa-bullhorn"></i>
                     </div>
                     <h3>Social Media Marketing</h3>
                     <p>Strategic social media campaigns that increase brand awareness and drive conversions.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="service-card">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="service-icon">
                         <i class="fas fa-search"></i>
                     </div>
                     <h3>SEO Optimization</h3>
                     <p>Comprehensive SEO strategies to improve your search engine rankings and organic traffic.</p>
+                    <a href="#contact" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
@@ -1434,12 +1769,12 @@
     <!-- Techniques Section -->
     <section id="techniques" class="techniques">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Growth Techniques</h2>
                 <p class="section-subtitle">Proven strategies to accelerate your business growth</p>
             </div>
             <div class="techniques-grid">
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="technique-icon">
                         <i class="fas fa-funnel-dollar"></i>
                     </div>
@@ -1448,7 +1783,7 @@
                         content integration.</p>
                     <span class="technique-tag">Revenue Generation</span>
                 </div>
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="technique-icon">
                         <i class="fas fa-viruses"></i>
                     </div>
@@ -1457,7 +1792,7 @@
                         expanding your reach exponentially.</p>
                     <span class="technique-tag">Audience Growth</span>
                 </div>
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="technique-icon">
                         <i class="fas fa-robot"></i>
                     </div>
@@ -1466,7 +1801,7 @@
                         optimization.</p>
                     <span class="technique-tag">Efficiency</span>
                 </div>
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="technique-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
@@ -1475,7 +1810,7 @@
                         customers.</p>
                     <span class="technique-tag">Conversion Focused</span>
                 </div>
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="technique-icon">
                         <i class="fas fa-coins"></i>
                     </div>
@@ -1484,7 +1819,7 @@
                         opportunities.</p>
                     <span class="technique-tag">Revenue Diversification</span>
                 </div>
-                <div class="technique-card">
+                <div class="technique-card" data-aos="fade-up" data-aos-delay="600">
                     <div class="technique-icon">
                         <i class="fas fa-analytics"></i>
                     </div>
@@ -1499,12 +1834,12 @@
     <!-- Blog Resources Section -->
     <section id="blog-resources" class="blog-resources">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Affiliate Marketing Blog Resources</h2>
                 <p class="section-subtitle">Learn from the best affiliate marketing blogs to grow your business</p>
             </div>
             <div class="blog-grid">
-                <div class="blog-card">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="blog-img">
                         <i class="fab fa-shopify"></i>
                     </div>
@@ -1516,7 +1851,7 @@
                             class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="blog-card">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="blog-img">
                         <i class="fas fa-briefcase"></i>
                     </div>
@@ -1528,7 +1863,7 @@
                             target="_blank" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="blog-card">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="blog-img">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -1547,10 +1882,10 @@
     <!-- Newsletter Section -->
     <section class="newsletter">
         <div class="container">
-            <div class="newsletter-content">
+            <div class="newsletter-content" data-aos="fade-up">
                 <h2>Get Exclusive Affiliate Marketing Tips</h2>
                 <p>Subscribe to our newsletter and receive the latest strategies to boost your affiliate revenue</p>
-                <form class="newsletter-form">
+                <form class="newsletter-form" id="newsletterForm">
                     <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
                     <button type="submit" class="btn">Subscribe Now</button>
                 </form>
@@ -1561,45 +1896,49 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Success Stories</h2>
                 <p class="section-subtitle">Real results for our clients across various industries</p>
             </div>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-img">
                         <i class="fas fa-funnel-dollar"></i>
                     </div>
                     <div class="project-content">
                         <h3>Affiliate Revenue System</h3>
                         <p>Automated content system that generated $25k+ in affiliate revenue in first 6 months.</p>
+                        <a href="#contact" class="project-link">See Case Study <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-img">
                         <i class="fas fa-share-alt"></i>
                     </div>
                     <div class="project-content">
                         <h3>Viral Content Platform</h3>
                         <p>Content management system that increased social shares by 327% for clients.</p>
+                        <a href="#contact" class="project-link">See Case Study <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-img">
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-content">
                         <h3>AI-Powered Marketing</h3>
                         <p>Artificial intelligence system that optimizes ad spend and increases conversion rates.</p>
+                        <a href="#contact" class="project-link">See Case Study <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-img">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
                         <h3>Revenue Growth Dashboard</h3>
                         <p>Analytics platform that visualizes income streams and identifies growth opportunities.</p>
+                        <a href="#contact" class="project-link">See Case Study <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1609,12 +1948,12 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Client Testimonials</h2>
                 <p class="section-subtitle">What our clients say about our digital growth services</p>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="testimonial-content">
                         <div class="testimonial-text">
                             "Digital Growth Circle transformed our online presence. Their strategies increased our
@@ -1631,7 +1970,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="testimonial-content">
                         <div class="testimonial-text">
                             "The team at Digital Growth Circle understands how to create real engagement. Our social
@@ -1648,7 +1987,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="testimonial-content">
                         <div class="testimonial-text">
                             "Their data-driven approach to digital marketing helped us identify new revenue streams we
@@ -1672,12 +2011,12 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title" data-aos="fade-up">
                 <h2>Get In Touch</h2>
                 <p class="section-subtitle">Ready to grow your business? Contact us today for a free consultation</p>
             </div>
             <div class="contact-content">
-                <div class="contact-info">
+                <div class="contact-info" data-aos="fade-right">
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
@@ -1716,7 +2055,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-left">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
@@ -1757,7 +2096,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div>
+                <div data-aos="fade-up">
                     <a href="#" class="footer-logo">DigitalGrowth<span>Circle</span></a>
                     <p>Creating circles of influence and revenue through digital growth strategies for businesses
                         worldwide.</p>
@@ -1772,17 +2111,17 @@
                                 class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="100">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">Growth-Focused Development</a></li>
-                        <li><a href="#">Conversion-Centered Design</a></li>
-                        <li><a href="#">Automation Systems</a></li>
-                        <li><a href="#">Growth Workshops</a></li>
-                        <li><a href="#">Social Media Marketing</a></li>
+                        <li><a href="#services">Growth-Focused Development</a></li>
+                        <li><a href="#services">Conversion-Centered Design</a></li>
+                        <li><a href="#services">Automation Systems</a></li>
+                        <li><a href="#services">Growth Workshops</a></li>
+                        <li><a href="#services">Social Media Marketing</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="200">
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
@@ -1792,7 +2131,7 @@
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-links">
+                <div class="footer-links" data-aos="fade-up" data-aos-delay="300">
                     <h3>Contact Info</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> rizwanrka826@gmail.com</li>
@@ -1807,7 +2146,25 @@
         </div>
     </footer>
 
+    <!-- AOS Library for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Loading animation
+        window.addEventListener('load', function () {
+            const loader = document.querySelector('.loader');
+            setTimeout(function () {
+                loader.classList.add('hidden');
+            }, 1000);
+        });
+
         // Simple form validation
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -1823,7 +2180,7 @@
         });
 
         // Newsletter form validation
-        document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const email = this.querySelector('input[type="email"]').value;
@@ -1863,11 +2220,28 @@
         // Header scroll effect
         window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
+            const backToTop = document.querySelector('.back-to-top');
+
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
             }
+
+            // Show back to top button
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
 
         // Smooth scrolling for navigation links
@@ -1911,6 +2285,74 @@
                 floatingPanel.classList.contains('active')) {
                 floatingPanel.classList.remove('active');
             }
+        });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const updateCounter = () => {
+                start += increment;
+                if (start < target) {
+                    element.textContent = Math.floor(start);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+            updateCounter();
+        }
+
+        // Initialize counters when in viewport
+        function initCounters() {
+            const clientCounter = document.getElementById('client-counter');
+            const roiCounter = document.getElementById('roi-counter');
+            const growthCounter = document.getElementById('growth-counter');
+
+            if (isInViewport(clientCounter)) {
+                animateCounter(clientCounter, 200, 2000);
+                animateCounter(roiCounter, 85, 2000);
+                animateCounter(growthCounter, 300, 2000);
+
+                // Remove event listener after triggering once
+                window.removeEventListener('scroll', initCounters);
+            }
+        }
+
+        // Check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Initialize counters on scroll
+        window.addEventListener('scroll', initCounters);
+
+        // Cookie consent
+        const cookieConsent = document.querySelector('.cookie-consent');
+        const acceptCookies = document.getElementById('accept-cookies');
+        const rejectCookies = document.getElementById('reject-cookies');
+
+        // Check if user has already made a choice
+        if (!localStorage.getItem('cookieConsent')) {
+            setTimeout(() => {
+                cookieConsent.classList.add('visible');
+            }, 2000);
+        }
+
+        acceptCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'accepted');
+            cookieConsent.classList.remove('visible');
+        });
+
+        rejectCookies.addEventListener('click', () => {
+            localStorage.setItem('cookieConsent', 'rejected');
+            cookieConsent.classList.remove('visible');
         });
     </script>
 </body>
