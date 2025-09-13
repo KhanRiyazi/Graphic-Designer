@@ -853,6 +853,114 @@
             border-top: 1px solid #334155;
         }
 
+        /* Blog Resources Section */
+        .blog-resources {
+            background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+        }
+
+        .blog-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .blog-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .blog-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .blog-link i {
+            margin-left: 5px;
+            transition: var(--transition);
+        }
+
+        .blog-link:hover {
+            color: var(--secondary);
+        }
+
+        .blog-link:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-family: inherit;
+        }
+
         /* Animations */
         @keyframes float {
             0% {
@@ -915,6 +1023,10 @@
             .btn-outline {
                 margin-left: 0;
                 margin-top: 1rem;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
             }
         }
 
@@ -1138,10 +1250,40 @@
                 <h1>Digital Growth <span>Circle of Influence</span></h1>
                 <p>We leverage cutting-edge techniques to create digital experiences that generate circles of influence
                     and revenue across social media platforms for businesses worldwide.</p>
-                <div>
-                    <a href="#contact" class="btn">Get Growth Strategies</a>
-                    <a href="#services" class="btn btn-outline">Our Services</a>
+
+                <!---------------buttons------------->
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; margin: 20px 0;">
+                    <a href="#contact"
+                        style="display: inline-block; padding: 12px 28px; background: #2563eb; color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        Get Growth Strategies
+                    </a>
+
+                    <a href="#services"
+                        style="display: inline-block; padding: 12px 28px; background: transparent; border: 2px solid #2563eb; color: #2563eb; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        Our Services
+                    </a>
+
+                    <a href="#blog-resources"
+                        style="display: inline-block; padding: 12px 28px; background: #10b981; color: white; border-radius: 50px; font-weight: 600; text-decoration: none; transition: all 0.3s ease;">
+                        Blog Resources
+                    </a>
                 </div>
+
+                <script>
+                    // Add simple hover effects
+                    document.querySelectorAll('a').forEach(button => {
+                        button.onmouseenter = () => {
+                            button.style.transform = 'translateY(-2px)';
+                            button.style.boxShadow = '0 4px 8px rgba(0,0,0,0.1)';
+                        };
+                        button.onmouseleave = () => {
+                            button.style.transform = 'translateY(0)';
+                            button.style.boxShadow = 'none';
+                        };
+                    });
+                </script>
+
+                <!---------------buttons------------->
 
                 <div class="stats-container">
                     <div class="stat-item">
@@ -1354,6 +1496,68 @@
         </div>
     </section>
 
+    <!-- Blog Resources Section -->
+    <section id="blog-resources" class="blog-resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Affiliate Marketing Blog Resources</h2>
+                <p class="section-subtitle">Learn from the best affiliate marketing blogs to grow your business</p>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fab fa-shopify"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Shopify Affiliate Marketing Blog</h3>
+                        <p>Comprehensive guides on building affiliate marketing strategies for e-commerce businesses,
+                            with practical tips and success stories.</p>
+                        <a href="https://www.shopify.com/blog/affiliate-marketing" target="_blank"
+                            class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>Forbes Affiliate Marketing Resources</h3>
+                        <p>Expert insights and industry trends from Forbes contributors on building successful affiliate
+                            marketing programs.</p>
+                        <a href="https://www.forbes.com/sites/forbesagencycouncil/2021/07/29/14-effective-strategies-for-building-a-successful-affiliate-marketing-program/"
+                            target="_blank" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="blog-card">
+                    <div class="blog-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="blog-content">
+                        <h3>HubSpot Affiliate Marketing Guide</h3>
+                        <p>Detailed strategies and best practices for creating and scaling affiliate marketing programs
+                            that drive revenue growth.</p>
+                        <a href="https://blog.hubspot.com/marketing/affiliate-marketing" target="_blank"
+                            class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Get Exclusive Affiliate Marketing Tips</h2>
+                <p>Subscribe to our newsletter and receive the latest strategies to boost your affiliate revenue</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn">Subscribe Now</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
@@ -1515,7 +1719,7 @@
                 <div class="contact-form">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Rizwan Ali</label>
+                            <label for="name">Your Name</label>
                             <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -1558,11 +1762,14 @@
                     <p>Creating circles of influence and revenue through digital growth strategies for businesses
                         worldwide.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/in/rizwan-ali-389660156/" class="social-link"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/KhanRiyazi" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://x.com/RizwanA96852028" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/rizwanrka8268/" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@ThisOne-007" class="social-link"><i
+                                class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -1579,17 +1786,17 @@
                     <h3>Quick Links</h3>
                     <ul>
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about"></a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#services">Services</a></li>
-                        <li><a href="#techniques">Techniques</a></li>
+                        <li><a href="#blog-resources">Blog Resources</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> growth@digitalgrowthcircle.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> rizwanrka826@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +91 98975 11437</li>
                         <li><i class="fas fa-map-marker-alt"></i> Global Agency</li>
                     </ul>
                 </div>
@@ -1611,6 +1818,18 @@
 
             if (name && email && message) {
                 alert('Thanks for your message! We\'ll get back to you soon with growth strategies.');
+                this.reset();
+            }
+        });
+
+        // Newsletter form validation
+        document.querySelector('.newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const email = this.querySelector('input[type="email"]').value;
+
+            if (email) {
+                alert('Thanks for subscribing to our newsletter! You\'ll receive affiliate marketing tips soon.');
                 this.reset();
             }
         });
