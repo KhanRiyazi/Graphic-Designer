@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Classes 5 to 10</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        /* Header */
+        .header {
+            background: #0d47a1;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Features */
+        .feature {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #2c2c2c;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            width: 85%;
+            max-width: 1100px;
+            flex-wrap: wrap;
+        }
+
+        .feature-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .feature-text h2 {
+            color: #64b5f6;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #ccc;
+        }
+
+        .feature-media {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Video wrapper with overlay */
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            height: 280px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: auto;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .video-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay::after {
+            content: "▶";
+            position: absolute;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 10px black;
+        }
+
+        /* Alternate Layout */
+        .feature:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Explore More */
+        .explore {
+            text-align: center;
+            font-size: 2rem;
+            margin: 40px 0 20px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: #2c2c2c;
+            border-radius: 10px;
+            width: 320px;
+            padding: 20px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: #333;
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            color: #64b5f6;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .card .video-wrapper {
+            height: 220px;
+        }
+
+        /* Suspension Menu */
+        .suspension-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .suspension-btn {
+            background: #0d47a1;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .suspension-btn:hover {
+            background: #1976d2;
+            transform: scale(1.1);
+        }
+
+        .lesson-menu {
+            display: none;
+            background: #2c2c2c;
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        .lesson-menu a {
+            display: block;
+            color: #64b5f6;
+            text-decoration: none;
+            padding: 5px 0;
+            font-size: 0.9rem;
+        }
+
+        .lesson-menu a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .feature {
+                flex-direction: column !important;
+            }
+
+            .video-wrapper {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <div class="book-container"
+        style="position:relative;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;background:#222;overflow:hidden;">
+
+        <!-- Book Wrapper -->
+        <div id="book" style="width:90%;height:90%;display:flex;perspective:2000px;">
+
+            <!-- Left Page (Static) -->
+            <div class="page left" style="
+        flex:1;
+        height:100%;
+        background:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+        overflow:hidden;
+        box-shadow:inset -10px 0 20px rgba(0,0,0,0.25);
+    ">
+                <img id="leftImage" src="../imgs/class5.jpeg" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+            <!-- Right Page (Flippable) -->
+            <div id="flipPage" style="
+        flex:1;
+        height:100%;
+        background:#fff;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:relative;
+        overflow:hidden;
+        transform-origin:left center;
+        transition:transform 1.5s;
+        box-shadow:inset 10px 0 20px rgba(0,0,0,0.25);
+    ">
+                <img id="rightImage" src="../imgs/class6.jpeg" style="width:100%;height:100%;object-fit:contain;">
+            </div>
+
+        </div>
+
+        <!-- Title Overlay -->
+        <div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);color:#873030;text-align:center;">
+            <h1 style="font-size:2.5rem;margin:0;">📘 Maths Classes (5th–10th)</h1>
+            <p style="font-size:1.2rem;margin:8px 0 0;">Learn • Practice • Master</p>
+        </div>
+
+        <!-- JS for Open-Book Flip -->
+        <script>
+            const images = [
+                "../imgs/class5.jpeg",
+                "../imgs/class6.jpeg",
+                "../imgs/class7.jpeg",
+                "../imgs/class8.jpeg",
+                "../imgs/class9.jpeg",
+                "../imgs/class10.jpeg"
+            ];
+
+            let index = 1;
+            const flipPage = document.getElementById("flipPage");
+            const rightImage = document.getElementById("rightImage");
+            const leftImage = document.getElementById("leftImage");
+
+            function turnPage() {
+                // Start flip
+                flipPage.style.transform = "rotateY(-180deg)";
+
+                setTimeout(() => {
+                    // Update images after flip
+                    leftImage.src = rightImage.src; // Left becomes previous right
+                    rightImage.src = images[index];
+                    index = (index + 1) % images.length;
+
+                    // Reset flip instantly
+                    flipPage.style.transition = "none";
+                    flipPage.style.transform = "rotateY(0deg)";
+                    setTimeout(() => {
+                        flipPage.style.transition = "transform 1.5s";
+                    }, 50);
+                }, 750); // halfway through animation
+            }
+
+            setInterval(turnPage, 4000);
+        </script>
+    </div>
+
+
+    <!-- Feature 1 -->
+    <div class="feature">
+        <div class="feature-text">
+            <h2>Class 5 - Fun with Numbers</h2>
+            <p>Master basic arithmetic operations, fractions, and geometry with interactive lessons and real-life
+                examples.</p>
+        </div>
+        <div class="feature-media">
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class5.jpeg" alt="Class 5 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_5?autoplay=1" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature">
+        <div class="feature-text">
+            <h2>Class 8 - Algebra & Geometry</h2>
+            <p>Learn algebraic expressions, equations, and geometry concepts with practical problem-solving activities.
+            </p>
+        </div>
+        <div class="feature-media">
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class8.jpeg" alt="Class 8 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_8?autoplay=1" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature">
+        <div class="feature-text">
+            <h2>Class 10 - Board Exam Prep</h2>
+            <p>Prepare for board exams with complete coverage of algebra, trigonometry, statistics, and probability.</p>
+        </div>
+        <div class="feature-media">
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class10.jpeg" alt="Class 10 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_10?autoplay=1" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Explore More -->
+    <div class="explore">Explore More Classes</div>
+    <div class="cards">
+        <div class="card">
+            <h3>Class 6</h3>
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class6.jpeg" alt="Class 6 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_6?autoplay=1" allowfullscreen></iframe>
+            </div>
+            <p>Build strong fundamentals in numbers, geometry, and data handling.</p>
+        </div>
+
+        <div class="card">
+            <h3>Class 7</h3>
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class7.jpeg" alt="Class 7 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_7?autoplay=1" allowfullscreen></iframe>
+            </div>
+            <p>Enhance your skills with integers, algebra, and practical math applications.</p>
+        </div>
+
+        <div class="card">
+            <h3>Class 9</h3>
+            <div class="video-wrapper">
+                <div class="video-overlay" onclick="playVideo(this)">
+                    <img src="../imgs/class9.jpeg" alt="Class 9 Intro">
+                </div>
+                <iframe data-src="https://www.youtube.com/embed/VIDEO_ID_9?autoplay=1" allowfullscreen></iframe>
+            </div>
+            <p>Dive deeper into polynomials, geometry, and statistics to prepare for higher studies.</p>
+        </div>
+    </div>
+
+    <!-- Suspension Buttons -->
+    <div class="suspension-container">
+        <!-- Class 5 -->
+        <div>
+            <button class="suspension-btn" onclick="toggleMenu('menu5')">5️⃣</button>
+            <div id="menu5" class="lesson-menu">
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_5a" target="_blank">Chapter 1: Numbers</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_5b" target="_blank">Chapter 2: Fractions</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_5c" target="_blank">Chapter 3: Geometry</a>
+            </div>
+        </div>
+
+        <!-- Class 8 -->
+        <div>
+            <button class="suspension-btn" onclick="toggleMenu('menu8')">8️⃣</button>
+            <div id="menu8" class="lesson-menu">
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_8a" target="_blank">Chapter 1: Algebra</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_8b" target="_blank">Chapter 2: Equations</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_8c" target="_blank">Chapter 3: Geometry</a>
+            </div>
+        </div>
+
+        <!-- Class 10 -->
+        <div>
+            <button class="suspension-btn" onclick="toggleMenu('menu10')">🔟</button>
+            <div id="menu10" class="lesson-menu">
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_10a" target="_blank">Chapter 1: Algebra</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_10b" target="_blank">Chapter 2: Trigonometry</a>
+                <a href="https://www.youtube.com/watch?v=VIDEO_ID_10c" target="_blank">Chapter 3: Probability</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function playVideo(overlay) {
+            const wrapper = overlay.parentElement;
+            const iframe = wrapper.querySelector("iframe");
+            overlay.style.display = "none";
+            iframe.src = iframe.getAttribute("data-src"); // load and autoplay
+            iframe.style.display = "block";
+        }
+
+        function toggleMenu(id) {
+            const menu = document.getElementById(id);
+            const isVisible = menu.style.display === "block";
+            document.querySelectorAll('.lesson-menu').forEach(m => m.style.display = "none");
+            menu.style.display = isVisible ? "none" : "block";
+        }
+    </script>
+
+</body>
+
+</html>
