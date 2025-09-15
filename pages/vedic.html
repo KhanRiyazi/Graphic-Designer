@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Mathematics vs AI | DevPortfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8fafc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #0d47a1;
+        }
+
+        .section-title p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0d47a1;
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1565c0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 71, 161, 0.2);
+        }
+
+        /* Header Styles */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: #0d47a1;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #0d47a1;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .math-hero {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #0d47a1, #1976d2);
+            color: white;
+            text-align: center;
+        }
+
+        .math-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .math-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .math-hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 80px 0;
+        }
+
+        .comparison-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .comparison-card {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-header {
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .vedic-header {
+            background: linear-gradient(135deg, #e65100, #ef6c00);
+        }
+
+        .ai-header {
+            background: linear-gradient(135deg, #01579b, #0288d1);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .card-body p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .example-box {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .example-box h4 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .example-box p {
+            font-family: monospace;
+            margin-bottom: 0;
+        }
+
+        /* Interactive Demo Section */
+        .demo-section {
+            padding: 80px 0;
+            background: #f1f8ff;
+        }
+
+        .demo-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .input-section {
+            flex: 1;
+            min-width: 300px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-section h3 {
+            margin-bottom: 20px;
+            color: #0d47a1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .results-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .result-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .result-card h3 {
+            margin-bottom: 15px;
+            color: #0d47a1;
+        }
+
+        .result-content {
+            min-height: 100px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            border-left: 4px solid #0d47a1;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a237e;
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col p {
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #e3f2fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #bbdefb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .comparison-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-code"></i>
+                    <span>DevPortfolio</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="index.html#stats">Stats</a></li>
+                    <li><a href="index.html#github">GitHub</a></li>
+                    <li><a href="index.html#canva">Designs</a></li>
+                    <li><a href="index.html#youtube">Videos</a></li>
+                    <li><a href="index.html#testimonials">Testimonials</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Math Hero Section -->
+    <section class="math-hero">
+        <div class="container">
+            <div class="math-hero-content">
+                <h1>Vedic Mathematics vs Artificial Intelligence</h1>
+                <p>Explore the fascinating differences between ancient calculation techniques and modern AI-powered
+                    solutions</p>
+                <a href="#demo" class="btn">Try Interactive Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Two Approaches to Problem Solving</h2>
+                <p>Ancient wisdom meets modern technology</p>
+            </div>
+
+            <div class="comparison-container">
+                <div class="comparison-card">
+                    <div class="card-header vedic-header">
+                        <h2>Vedic Mathematics</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ancient Calculation System</h3>
+                        <p>Vedic Mathematics is a collection of techniques derived from ancient Indian scriptures called
+                            the Vedas. These methods simplify arithmetic, algebraic, and geometric calculations.</p>
+
+                        <div class="example-box">
+                            <h4>Example: Multiplication of Numbers Close to 100</h4>
+                            <p>To multiply 98 × 97:</p>
+                            <p>1. Calculate differences from 100: 98-100 = -2, 97-100 = -3</p>
+                            <p>2. Cross add: 98 + (-3) = 95 or 97 + (-2) = 95</p>
+                            <p>3. Multiply differences: (-2) × (-3) = 06</p>
+                            <p>4. Result: 9506</p>
+                        </div>
+
+                        <h3>Advantages</h3>
+                        <ul>
+                            <li>Mental calculation capabilities</li>
+                            <li>Improves number sense and flexibility</li>
+                            <li>No external tools required</li>
+                            <li>Enhances logical thinking</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="card-header ai-header">
+                        <h2>Artificial Intelligence</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3>Modern Computational Power</h3>
+                        <p>AI uses machine learning algorithms and neural networks to process complex calculations,
+                            recognize patterns, and solve problems at incredible speeds.</p>
+
+                        <div class="example-box">
+                            <h4>Example: AI-Powered Calculation</h4>
+                            <p>To multiply 98 × 97:</p>
+                            <p>1. AI can instantly recognize this as a calculation task</p>
+                            <p>2. Process through neural networks trained on arithmetic</p>
+                            <p>3. Generate result: 9506</p>
+                            <p>4. Can also explain steps or solve much more complex problems</p>
+                        </div>
+
+                        <h3>Advantages</h3>
+                        <ul>
+                            <li>Extremely fast processing</li>
+                            <li>Handles complex, multi-step problems</li>
+                            <li>Can learn and improve over time</li>
+                            <li>Integrates with various data sources</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo-section" id="demo">
+        <div class="container">
+            <div class="section-title">
+                <h2>Interactive Demonstration</h2>
+                <p>Compare both approaches with your own numbers</p>
+            </div>
+
+            <div class="demo-container">
+                <div class="input-section">
+                    <h3>Enter Numbers to Calculate</h3>
+                    <div class="form-group">
+                        <label for="number1">First Number</label>
+                        <input type="number" id="number1" placeholder="Enter a number">
+                    </div>
+                    <div class="form-group">
+                        <label for="number2">Second Number</label>
+                        <input type="number" id="number2" placeholder="Enter another number">
+                    </div>
+                    <button class="btn" id="calculateBtn">Calculate</button>
+                </div>
+
+                <div class="results-section">
+                    <div class="result-card">
+                        <h3>Vedic Mathematics Approach</h3>
+                        <div class="result-content" id="vedicResult">
+                            <p>Enter numbers and click calculate to see Vedic method</p>
+                        </div>
+                    </div>
+
+                    <div class="result-card">
+                        <h3>AI-Powered Approach</h3>
+                        <div class="result-content" id="aiResult">
+                            <p>Enter numbers and click calculate to see AI method</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>About Me</h4>
+                    <p>Full stack developer and content creator passionate about building innovative solutions and
+                        sharing knowledge with the community.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#skills"><i class="fas fa-chevron-right"></i> Skills</a></li>
+                        <li><a href="index.html#stats"><i class="fas fa-chevron-right"></i> Stats</a></li>
+                        <li><a href="index.html#github"><i class="fas fa-chevron-right"></i> GitHub</a></li>
+                        <li><a href="index.html#canva"><i class="fas fa-chevron-right"></i> Designs</a></li>
+                        <li><a href="index.html#youtube"><i class="fas fa-chevron-right"></i> Videos</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>My Content</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                        <li><a href="#"><i class="fas fa-blog"></i> Blog</a></li>
+                        <li><a href="#"><i class="fas fa-palette"></i> Canva Designs</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2023 Your Name. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Calculation functionality
+        document.getElementById('calculateBtn').addEventListener('click', function () {
+            const num1 = parseInt(document.getElementById('number1').value);
+            const num2 = parseInt(document.getElementById('number2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert('Please enter valid numbers');
+                return;
+            }
+
+            // Vedic calculation
+            const vedicResult = calculateVedic(num1, num2);
+            document.getElementById('vedicResult').innerHTML = vedicResult;
+
+            // AI calculation simulation
+            const aiResult = calculateAI(num1, num2);
+            document.getElementById('aiResult').innerHTML = aiResult;
+        });
+
+        // Vedic mathematics calculation
+        function calculateVedic(a, b) {
+            // For numbers close to 100
+            if (a > 90 && a < 110 && b > 90 && b < 110) {
+                const diffA = 100 - a;
+                const diffB = 100 - b;
+                const crossSum = a - diffB; // Same as b - diffA
+                const product = diffA * diffB;
+
+                return `
+                    <p><strong>Vedic Method (Numbers close to 100):</strong></p>
+                    <p>1. Differences from 100: ${a} → ${diffA}, ${b} → ${diffB}</p>
+                    <p>2. Cross addition: ${a} + (${-diffB}) = ${crossSum} OR ${b} + (${-diffA}) = ${crossSum}</p>
+                    <p>3. Product of differences: ${diffA} × ${diffB} = ${product}</p>
+                    <p>4. Final result: ${crossSum}${Math.abs(product) < 10 ? '0' + Math.abs(product) : Math.abs(product)}</p>
+                    <p><strong>${a} × ${b} = ${a * b}</strong></p>
+                `;
+            }
+
+            // Generic multiplication for other numbers
+            return `
+                <p><strong>Standard Multiplication:</strong></p>
+                <p>${a} × ${b} = ${a * b}</p>
+                <p>Vedic mathematics offers various techniques for different number patterns, but this example uses standard multiplication.</p>
+            `;
+        }
+
+        // Simulated AI calculation
+        function calculateAI(a, b) {
+            // Simulate AI "thinking" with a delay
+            const startTime = new Date().getTime();
+
+            // Simulate processing time based on problem complexity
+            const complexity = Math.max(a, b).toString().length;
+            const processingTime = Math.min(500, complexity * 100);
+
+            return `
+                <p><strong>AI Analysis:</strong></p>
+                <p>1. Identified as multiplication problem</p>
+                <p>2. Processed through neural network model</p>
+                <p>3. Verified result with confidence level: 99.97%</p>
+                <p>4. Generated solution:</p>
+                <p><strong>${a} × ${b} = ${a * b}</strong></p>
+                <p>Processing time: ${processingTime}ms (simulated)</p>
+                <p>AI can handle much more complex problems including algebra, calculus, and data analysis.</p>
+            `;
+        }
+    </script>
+</body>
+
+</html>

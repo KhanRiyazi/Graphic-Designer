@@ -53,38 +53,150 @@
                 I craft modern web applications and create impactful content that blends technology with creativity.
             </p>
 
-            <div class="hero-buttons" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-                <a href="pages/dua.html" style="background: #fff; color: #1976d2; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                    <i class="fas fa-briefcase"></i>My Work
-                </a>
-                <a href="#contact" style="border: 2px solid #fff; color: #fff; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease;">
-                    <i class="fas fa-paper-plane"></i> Contact Me
-                </a>
-                <a href="pages/affiliate.html" style="background: #fff; color: #1976d2; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                    <i class="fas fa-briefcase"></i> Affiliate
-                </a>
-                <a href="pages/hacks.html" style="border: 2px solid #fff; color: #fff; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease;">
-                    <i class="fas fa-paper-plane"></i> Hacks
-                </a>
-                <a href="pages/portfolio.html" style="background: #fff; color: #1976d2; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
-                    <i class="fas fa-briefcase"></i> Portfolio
-                </a>
-                <a href="pages/maths.html" style="border: 2px solid #fff; color: #fff; padding: 12px 30px; 
-                   border-radius: 8px; text-decoration: none; font-size: 1rem; font-weight: 600;
-                   transition: all 0.3s ease;">
-                    <i class="fas fa-paper-plane"></i> Maths
+            <!--------------buttons-------------->
+
+            <!-- Buttons Section -->
+            <div class="hero-buttons">
+                <!-- Toggle Button -->
+                <a href="#explore" class="btn btn-primary suspended" id="explore-btn">
+                    <i class="fas fa-bars"></i> Menu
                 </a>
             </div>
+
+            <!-- Popup Menu with All 7 Buttons -->
+            <div class="popup-menu" id="popup-menu">
+                <a href="#explore" class="btn-popup"><i class="fas fa-compass"></i> Explore</a>
+                <a href="#contact" class="btn-popup"><i class="fas fa-paper-plane"></i> Contact Me</a>
+                <a href="pages/dua.html" class="btn-popup"><i class="fas fa-briefcase"></i> My Work</a>
+                <a href="pages/affiliate.html" class="btn-popup"><i class="fas fa-handshake"></i> Affiliate</a>
+                <a href="pages/hacks.html" class="btn-popup"><i class="fas fa-lightbulb"></i> Hacks</a>
+                <a href="pages/portfolio.html" class="btn-popup"><i class="fas fa-folder-open"></i> Portfolio</a>
+                <a href="pages/maths.html" class="btn-popup"><i class="fas fa-square-root-alt"></i> Maths</a>
+                <a href="pages/vedic.html" class="btn-popup"><i class="fas fa-book"></i> Vedic</a>
+            </div>
+
+            <!-- CSS -->
+            <style>
+                .hero-buttons {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 40px;
+                    position: relative;
+                }
+
+                .popup-menu {
+                    display: none;
+                    flex-wrap: wrap;
+                    gap: 12px;
+                    position: absolute;
+                    bottom: 70px;
+                    /* popup above button */
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 16px;
+                    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+                    animation: fadeUp 0.25s ease;
+                    min-width: 280px;
+                    max-width: 340px;
+                    justify-content: center;
+                    z-index: 100;
+                }
+
+                /* Popup buttons styled like cards */
+                .btn-popup {
+                    flex: 1 1 calc(50% - 12px);
+                    /* 2 per row */
+                    text-align: center;
+                    padding: 12px;
+                    border-radius: 10px;
+                    font-size: 0.95rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    color: #1976d2;
+                    background: #f9f9f9;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 6px;
+                    transition: all 0.25s ease;
+                    border: 1px solid #e0e0e0;
+                }
+
+                .btn-popup:hover {
+                    background: #1976d2;
+                    color: #fff;
+                }
+
+                /* Fade animation */
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translate(-50%, 15px);
+                    }
+
+                    to {
+                        opacity: 1;
+                        transform: translate(-50%, 0);
+                    }
+                }
+
+                /* Main toggle button */
+                .btn {
+                    padding: 12px 26px;
+                    border-radius: 10px;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-decoration: none;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 8px;
+                    transition: all 0.3s ease;
+                }
+
+                /* Suspended effect */
+                .suspended {
+                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+                }
+
+                .suspended:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+                }
+
+                /* Primary button */
+                .btn-primary {
+                    background: #1976d2;
+                    color: #fff;
+                }
+
+                .btn-primary:hover {
+                    background: #1457a6;
+                }
+            </style>
+
+            <!-- JS -->
+            <script>
+                const exploreBtn = document.getElementById("explore-btn");
+                const popupMenu = document.getElementById("popup-menu");
+
+                // Toggle popup menu
+                exploreBtn.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    popupMenu.style.display = popupMenu.style.display === "flex" ? "none" : "flex";
+                });
+
+                // Close popup if clicked outside
+                document.addEventListener("click", function (e) {
+                    if (!exploreBtn.contains(e.target) && !popupMenu.contains(e.target)) {
+                        popupMenu.style.display = "none";
+                    }
+                });
+            </script>
+
+
+            <!--------------buttons-------------->
         </div>
 
         <!-- Professional Marquee -->
