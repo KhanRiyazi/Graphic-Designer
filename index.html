@@ -200,39 +200,118 @@
         </div>
 
         <!-- Professional Marquee -->
-        <div
-            style="position: absolute; bottom: 0; left: 0; width: 100%; 
-        background: rgba(0,0,0,0.85); padding: 18px 0; z-index: 3; overflow: hidden; border-top: 2px solid rgba(255,255,255,0.2);">
-            <div style="display: flex; gap: 40px; animation: scroll 25s linear infinite; width: max-content;">
-                <img src="imgs/01_port.jpg" alt="Project 1"
-                    style="height: 110px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);">
-                <img src="imgs/02-port.jpg" alt="Project 2"
-                    style="height: 110px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);">
-                <img src="imgs/03-port.jpg" alt="Project 3"
-                    style="height: 110px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);">
-                <img src="imgs/04-port.jpg" alt="Project 4"
-                    style="height: 110px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.4);">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <!-- Duplicate images for seamless loop -->
+                <img src="imgs/01_port.jpg" alt="Project 1">
+                <img src="imgs/02-port.jpg" alt="Project 2">
+                <img src="imgs/03-port.jpg" alt="Project 3">
+                <img src="imgs/04-port.jpg" alt="Project 4">
+                <img src="imgs/05-Dash.jpg" alt="Project 5">
+                <img src="imgs/06-port.jpg" alt="Project 6">
+                <img src="imgs/07-touch to learn.jpg" alt="Project 7">
+                <img src="imgs/08-AI touch.jpg" alt="Project 8">
+                <img src="imgs/09-earning tree.jpg" alt="Project 9">
+                <img src="imgs/10-freelans.jpg" alt="Project 10">
+                <img src="imgs/Design_book.jpg" alt="Project 11">
+                <img src="imgs/scratch.jpg" alt="Project 12">
+                <img src="imgs/11-zishan.jpg" alt="Project 13">
+                <img src="imgs/12-Imran.jpg" alt="Project 14">
+                <img src="imgs/elon_musk.jpg" alt="Project 15">
+                <img src="imgs/IM_WE.jpg" alt="Project 16">
+                <img src="imgs/html-css.jpg" alt="Project 17">
+
+                <!-- Repeat for infinite effect -->
+                <img src="imgs/01_port.jpg" alt="Project 1">
+                <img src="imgs/02-port.jpg" alt="Project 2">
+                <img src="imgs/03-port.jpg" alt="Project 3">
+                <img src="imgs/04-port.jpg" alt="Project 4">
+                <img src="imgs/05-Dash.jpg" alt="Project 5">
+                <img src="imgs/06-port.jpg" alt="Project 6">
+                <img src="imgs/07-touch to learn.jpg" alt="Project 7">
+                <img src="imgs/08-AI touch.jpg" alt="Project 8">
+                <img src="imgs/09-earning tree.jpg" alt="Project 9">
+                <img src="imgs/10-freelans.jpg" alt="Project 10">
+                <img src="imgs/Design_book.jpg" alt="Project 11">
+                <img src="imgs/scratch.jpg" alt="Project 12">
+                <img src="imgs/11-zishan.jpg" alt="Project 13">
+                <img src="imgs/12-Imran.jpg" alt="Project 14">
+                <img src="imgs/elon_musk.jpg" alt="Project 15">
+                <img src="imgs/IM_WE.jpg" alt="Project 16">
+                <img src="imgs/html-css.jpg" alt="Project 17">
             </div>
         </div>
 
-        <!-- Styles -->
         <style>
-            @keyframes scroll {
+            /* Container */
+            .marquee-container {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.85);
+                padding: 14px 0;
+                border-top: 2px solid rgba(255, 255, 255, 0.2);
+                overflow: hidden;
+                z-index: 3;
+            }
+
+            /* Content */
+            .marquee-content {
+                display: flex;
+                gap: 30px;
+                width: max-content;
+                animation: marquee 40s linear infinite;
+            }
+
+            /* Images */
+            .marquee-content img {
+                height: 110px;
+                border-radius: 12px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+                transition: transform 0.3s;
+            }
+
+            .marquee-content img:hover {
+                transform: scale(1.1);
+            }
+
+            /* Keyframes */
+            @keyframes marquee {
                 from {
-                    transform: translateX(100%);
+                    transform: translateX(0);
                 }
 
                 to {
-                    transform: translateX(-100%);
+                    transform: translateX(-50%);
                 }
             }
 
-            .hero a:hover {
-                background: #1565c0 !important;
-                color: #fff !important;
-                border-color: #1565c0 !important;
+            /* Mobile Responsive */
+            @media (max-width: 768px) {
+                .marquee-content img {
+                    height: 80px;
+                }
+
+                .marquee-content {
+                    gap: 20px;
+                    animation-duration: 30s;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .marquee-content img {
+                    height: 65px;
+                }
+
+                .marquee-content {
+                    gap: 15px;
+                    animation-duration: 25s;
+                }
             }
         </style>
+        <!-- Professional Marquee -->
+
 
     </section>
 
@@ -445,7 +524,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/03-port.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -453,9 +532,10 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://khanriyazi.github.io/Affiliate_marketing/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Social Media
+                                        Coordinator
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -762,7 +842,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/elon_musk.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -770,9 +850,10 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://khanriyazi.github.io/Elon_Musk-Dashboard/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Elon Musk
+
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -815,7 +896,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/html-css.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -823,9 +904,9 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://friendly-sunshine-57bba4.netlify.app/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> HTML & CSS with js
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -868,7 +949,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/Design_book.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -876,9 +957,9 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://khanriyazi.github.io/Design-Book/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Book
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -921,7 +1002,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/IM_WE.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -929,9 +1010,9 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://khanriyazi.github.io/IM-WE/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> IM WE
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -1027,7 +1108,7 @@
                     <div class="repo-card"
                         style="background: #fff; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); overflow: hidden; display: flex; flex-direction: column;">
                         <div class="repo-image" style="height: 180px; overflow: hidden;">
-                            <img src="imgs/01_port.jpg" alt="Web App Project"
+                            <img src="imgs/scratch.jpg" alt="Web App Project"
                                 style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                         <div class="repo-content"
@@ -1035,9 +1116,9 @@
                             <div>
                                 <div class="repo-header"
                                     style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                                    <a href="https://khanriyazi.github.io/Link-Project/" target="_blank"
+                                    <a href="https://scratch.mit.edu/users/RizwanDreams/" target="_blank"
                                         style="font-weight: bold; color: #24292e; text-decoration: none; font-size: 18px;">
-                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Design Thinking
+                                        <i class="fab fa-github" style="margin-right: 6px;"></i> Scratch Programming
                                     </a>
                                     <div class="repo-stats" style="color: #666; font-size: 14px;">
                                         <span class="repo-stat" style="margin-right: 8px;"><i class="fas fa-star"
@@ -1104,8 +1185,7 @@
                 <div class="canva-grid">
                     <div class="canva-card">
                         <div class="canva-image">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                alt="Social Media Graphics">
+                            <img src="imgs/canva1.png" alt="Social Media Graphics">
                         </div>
                         <div class="canva-content">
                             <h3 class="canva-title">Social Media Graphics Pack</h3>
@@ -1119,7 +1199,8 @@
                             <div class="canva-footer">
                                 <span><i class="far fa-heart"></i> 245</span>
                                 <span><i class="far fa-eye"></i> 1.2K</span>
-                                <a href="#" class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
+                                <a href="https://www.canva.com/design/DAGx0av8S98/XkHJe_LrTReYnQKM3eSmhA/edit"
+                                    class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
                                     <i class="fas fa-external-link-alt"></i> Use Template
                                 </a>
                             </div>
@@ -1128,8 +1209,7 @@
 
                     <div class="canva-card">
                         <div class="canva-image">
-                            <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
-                                alt="Presentation Templates">
+                            <img src="imgs/canva2.png" alt="Presentation Templates">
                         </div>
                         <div class="canva-content">
                             <h3 class="canva-title">Business Presentation Kit</h3>
@@ -1143,7 +1223,8 @@
                             <div class="canva-footer">
                                 <span><i class="far fa-heart"></i> 187</span>
                                 <span><i class="far fa-eye"></i> 980</span>
-                                <a href="#" class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
+                                <a href="https://www.canva.com/design/DAGxIMe0x-A/y-Dkx4PMB03HU2hmDzH_Fw/edit"
+                                    class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
                                     <i class="fas fa-external-link-alt"></i> Use Template
                                 </a>
                             </div>
@@ -1152,8 +1233,7 @@
 
                     <div class="canva-card">
                         <div class="canva-image">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80"
-                                alt="Logo Designs">
+                            <img src="imgs/canva3.png">
                         </div>
                         <div class="canva-content">
                             <h3 class="canva-title">Logo Collection</h3>
@@ -1167,7 +1247,8 @@
                             <div class="canva-footer">
                                 <span><i class="far fa-heart"></i> 312</span>
                                 <span><i class="far fa-eye"></i> 1.5K</span>
-                                <a href="#" class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
+                                <a href="https://www.canva.com/design/DAGwv9Ujqvk/nb2STediuOwbhWUmrTbfzw/edit"
+                                    class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
                                     <i class="fas fa-external-link-alt"></i> Use Template
                                 </a>
                             </div>
@@ -1176,8 +1257,7 @@
 
                     <div class="canva-card">
                         <div class="canva-image">
-                            <img src="https://images.unsplash.com/photo-1586232702178-f044c5f4d4b7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1035&q=80"
-                                alt="Marketing Materials">
+                            <img src="imgs/canva4.png">
                         </div>
                         <div class="canva-content">
                             <h3 class="canva-title">Marketing Materials Pack</h3>
@@ -1192,7 +1272,8 @@
                             <div class="canva-footer">
                                 <span><i class="far fa-heart"></i> 276</span>
                                 <span><i class="far fa-eye"></i> 1.3K</span>
-                                <a href="#" class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
+                                <a href="https://www.canva.com/design/DAGvTI8DWcw/P5N8M7e_m1Ipitw9k7FIUw/edit"
+                                    class="btn btn-canva" style="padding: 8px 16px; font-size: 0.9rem;">
                                     <i class="fas fa-external-link-alt"></i> Use Template
                                 </a>
                             </div>
@@ -1201,7 +1282,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 40px;">
-                    <a href="https://www.canva.com/yourprofile" target="_blank" class="btn btn-canva">
+                    <a href="https://www.canva.com/projects" target="_blank" class="btn btn-canva">
                         <i class="fas fa-palette"></i> View All Designs
                     </a>
                 </div>
@@ -1352,42 +1433,46 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        John delivered an exceptional web application that exceeded our expectations. His attention
-                        to detail and problem-solving skills are remarkable.
+                        Global Director, 100 Million Campaign at Kailash Satyarthi Childrens Foundation
+                        Buckhurst Hill
                     </div>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">SJ</div>
                         <div class="testimonial-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Project Manager at TechCorp</p>
+                            <h4>Owain James </h4>
+                            <p>
+                                Global Director</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        The blog posts are incredibly insightful and well-researched. I've implemented several of
-                        the techniques mentioned with great success.
+                        Code to Enhance Learning is a non-profit that uses coding as a tool to build critical thinking,
+                        creativity, collaboration and perseverance in children in grade 4-9.
                     </div>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">MR</div>
                         <div class="testimonial-info">
-                            <h4>Michael Rodriguez</h4>
-                            <p>Software Developer</p>
+                            <h4>Irfan Lalani</h4>
+                            <p>Founder and director, Code to enhance learning</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="testimonial-card">
                     <div class="testimonial-text">
-                        The GitHub repositories are a treasure trove of knowledge. The code is clean,
-                        well-documented, and demonstrates best practices.
+                        Muskaan Dreams is a Forbes-recognized tech nonprofit organization in India, dedicated to
+                        transforming how students in government schools learn and prepare for the digital age. With a
+                        strong vision to bridge the digital divide, we operate at the intersection of technology,
+                        education, and equity—empowering students from underserved communities with the digital skills,
+                        tools, and opportunities they need to thrive in the 21st century.
                     </div>
                     <div class="testimonial-author">
                         <div class="testimonial-avatar">AL</div>
                         <div class="testimonial-info">
-                            <h4>Amanda Lee</h4>
-                            <p>Lead Developer at StartupHub</p>
+                            <h4>Abhishek Dubay</h4>
+                            <p>Muskaan Dreams Foundation</p>
                         </div>
                     </div>
                 </div>
