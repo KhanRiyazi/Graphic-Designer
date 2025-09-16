@@ -6,64 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Affiliate Marketing for Devs | Learn & Grow</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #58a6ff;
-            --secondary: #238636;
-            --dark-bg: #0d1117;
-            --card-bg: #161b22;
-            --text: #e6edf3;
-            --text-muted: #8b949e;
-            --border: #30363d;
+            --primary: #191e23;
+            --secondary: #008060;
+            --accent: #004c3f;
+            --text: #202223;
+            --text-light: #6d7175;
+            --background: #ffffff;
+            --surface: #f6f6f7;
+            --border: #e1e3e5;
+            --hover: #f1f2f3;
+            --card-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.05);
+            --shadow-hover: 0px 2px 5px rgba(0, 0, 0, 0.05), 0px 0px 0px 1px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            margin: 0;
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--dark-bg);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
-        }
-
-        header {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        header p {
-            margin-top: 0.5rem;
-            color: var(--text-muted);
-        }
-
-        nav {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            margin: 0 10px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-            transform: translateY(-2px);
+            font-size: 15px;
         }
 
         .container {
@@ -72,327 +42,427 @@
             padding: 0 20px;
         }
 
-        .hero {
-            padding: 5rem 2rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--card-bg), var(--dark-bg));
-            position: relative;
-            overflow: hidden;
+        /* Header Styles */
+        header {
+            background-color: var(--background);
+            box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%2358a6ff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            background-size: cover;
-            background-position: center;
-            opacity: 0.5;
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: var(--hover);
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .cta-button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f6f6f7 0%, #ffffff 100%);
+            text-align: center;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .cta-button {
-            background: var(--secondary);
-            border: none;
-            padding: 12px 28px;
-            font-size: 1.1rem;
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-light);
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        .primary-button {
+            background-color: var(--secondary);
             color: white;
-            border-radius: 8px;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
             cursor: pointer;
-            margin-top: 1.5rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
+            transition: all 0.2s ease;
+        }
+
+        .primary-button:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1px solid var(--secondary);
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .secondary-button:hover {
+            background-color: rgba(0, 128, 96, 0.05);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: var(--surface);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--background);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            background-color: rgba(0, 128, 96, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            display: flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            margin-bottom: 20px;
         }
 
-        .cta-button:hover {
-            background: #2ea043;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .feature-icon i {
+            color: var(--secondary);
+            font-size: 24px;
         }
 
-        .path-container {
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+        }
+
+        /* Path Section */
+        .path {
+            padding: 80px 0;
+        }
+
+        .path-steps {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            margin: 4rem 0;
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .path-step {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .path-step:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-
-        .path-step h3 {
-            color: var(--primary);
-            margin-top: 0;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            gap: 24px;
+            align-items: flex-start;
         }
 
         .step-number {
-            background: var(--primary);
-            color: var(--dark-bg);
-            width: 30px;
-            height: 30px;
+            background-color: var(--secondary);
+            color: white;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            margin-bottom: 16px;
+        }
+
+        .step-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .step-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .step-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Resources Section */
+        .resources {
+            padding: 80px 0;
+            background-color: var(--surface);
         }
 
         .resources-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
         }
 
         .resource-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
+            background-color: var(--background);
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.2s ease;
         }
 
         .resource-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
         }
 
-        .resource-card h4 {
-            margin-top: 0;
-            color: var(--primary);
+        .resource-card h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .links a {
+        .resource-links {
             display: flex;
-            align-items: center;
-            gap: 8px;
-            margin: 0.8rem 0;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .resource-links a {
             color: var(--text);
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 8px 12px;
-            border-radius: 6px;
-        }
-
-        .links a:hover {
-            color: var(--primary);
-            background: rgba(88, 166, 255, 0.1);
-            transform: translateX(5px);
-        }
-
-        .api-demo {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 2rem 0;
-            border: 1px solid var(--border);
-        }
-
-        .code-snippet {
-            background: #1e1e1e;
-            border-radius: 8px;
-            padding: 16px;
-            overflow-x: auto;
-            margin: 1rem 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 1.5rem;
-            background: var(--card-bg);
-            border-top: 1px solid var(--border);
-            margin-top: 4rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .social-links {
+            padding: 10px 12px;
+            border-radius: 4px;
+            transition: all 0.2s ease;
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text-muted);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-3px);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            overflow-y: auto;
-        }
-
-        .modal-content {
-            position: relative;
-            background-color: var(--card-bg);
-            margin: 5% auto;
-            padding: 30px;
-            width: 80%;
-            max-width: 800px;
-            border-radius: 12px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-            animation: modalFade 0.3s;
-        }
-
-        @keyframes modalFade {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-button {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            color: var(--text-muted);
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-
-        .close-button:hover {
-            color: var(--primary);
-        }
-
-        .guide-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .guide-section {
-            margin-bottom: 30px;
-        }
-
-        .guide-section h3 {
-            color: var(--primary);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 10px;
-        }
-
-        .checklist {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .checklist li {
-            margin-bottom: 10px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .checklist li:before {
-            content: "✓";
-            color: var(--secondary);
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .download-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .download-btn {
-            display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 20px;
-            background: var(--primary);
+        }
+
+        .resource-links a:hover {
+            background-color: var(--hover);
+            color: var(--secondary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #ffffff 0%, #f6f6f7 100%);
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
             color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 16px;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
-        .download-btn:hover {
-            background: #3d8fe1;
-            transform: translateY(-3px);
+        .footer-links a:hover {
+            color: white;
         }
 
-        /* Mobile */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .hero h2 {
-                font-size: 2rem;
+            .header-container {
+                flex-direction: column;
+                gap: 16px;
             }
 
-            nav a {
-                margin: 5px;
+            .nav-menu {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
-            .resources-grid {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .features-grid {
                 grid-template-columns: 1fr;
             }
 
-            .modal-content {
-                width: 90%;
-                padding: 20px;
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                flex-direction: column;
             }
 
-            .download-buttons {
-                flex-direction: column;
-                align-items: center;
+            .footer-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -400,318 +470,255 @@
 
 <body>
     <header>
-        <div class="container">
-            <h1>Affiliate Marketing for Developers</h1>
-            <p>Learn. Build. Earn. – Affiliate Marketing + FastAPI + Blogging</p>
-            <nav>
-                <a href="#path"><i class="fas fa-road"></i> Learning Path</a>
-                <a href="#resources"><i class="fas fa-book"></i> Resources</a>
-                <a href="#blogs"><i class="fas fa-blog"></i> Blogging</a>
-                <a href="#fastapi"><i class="fas fa-bolt"></i> FastAPI</a>
-                <a href="#community"><i class="fas fa-users"></i> Community</a>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-code"></i>
+                Affiliate<span>Dev</span>
+            </a>
+            <nav class="nav-menu">
+                <a href="#features">Features</a>
+                <a href="#path">Learning Path</a>
+                <a href="#resources">Resources</a>
+                <a href="#community">Community</a>
             </nav>
+            <div class="header-actions">
+                <button class="cta-button">Get Started</button>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h2>Turn Your Knowledge into Passive Income</h2>
-            <p>Master affiliate marketing the developer way. Follow our step-by-step path from blogging to earning with
-                affiliate marketing using FastAPI.</p>
-            <button class="cta-button" id="ctaBtn">
-                <i class="fas fa-download"></i> Get Free Starter Guide
-            </button>
+        <div class="container hero-content">
+            <h1>Turn Your Coding Skills Into Profits</h1>
+            <p>Master affiliate marketing the developer way. Write blogs, build with FastAPI, and earn passive income.
+            </p>
+            <div class="hero-buttons" style="display:flex; gap:15px; margin-top:20px;">
+                <!-- Start Free Guide -->
+                <a href="dua.html"
+                    style="background:#4CAF50; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-size:16px; font-weight:bold; display:inline-block; transition:0.3s;">
+                    Start Free Guide
+                </a>
+
+                <!-- Watch Demo -->
+                <a href="youtube.html" target="_blank"
+                    style="background:#333; color:#fff; padding:12px 24px; border-radius:6px; text-decoration:none; font-size:16px; font-weight:bold; display:inline-block; transition:0.3s;">
+                    Watch Demo
+                </a>
+            </div>
+
         </div>
     </section>
 
-    <div class="container">
-        <section id="path">
-            <h2><i class="fas fa-road"></i> Your Path to Earnings</h2>
-            <div class="path-container">
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything you need to succeed</h2>
+                <p>We provide the tools and resources to help developers monetize their skills through affiliate
+                    marketing</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-blog"></i>
+                    </div>
+                    <h3>Technical Blogging</h3>
+                    <p>Create compelling content that attracts developers and promotes products you love.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>FastAPI Integration</h3>
+                    <p>Build high-performance tools and APIs to enhance your affiliate marketing efforts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Analytics & Tracking</h3>
+                    <p>Monitor your performance and optimize your strategy with detailed analytics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="path" id="path">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Path to Affiliate Success</h2>
+                <p>Follow these steps to start earning as a developer affiliate marketer</p>
+            </div>
+            <div class="path-steps">
                 <div class="path-step">
-                    <h3><span class="step-number">1</span> Start Technical Blogging</h3>
-                    <p>Begin by creating content on developer-focused platforms. Write tutorials, how-to guides, and
-                        reviews of tools you use.</p>
-                    <div class="links">
-                        <a href="https://dev.to/khanriyazi" target="_blank"><i class="fab fa-dev"></i> DEV Community</a>
-                        <a href="https://hashnode.com/@ali826" target="_blank"><i class="fas fa-blog"></i> Hashnode
-                            Blogging</a>
-                        <a href="https://medium.com/@rizwanrka826" target="_blank"><i class="fab fa-medium"></i>
-                            Medium</a>
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Start Technical Blogging</h3>
+                        <p>Begin by creating content on developer-focused platforms. Write tutorials, how-to guides, and
+                            reviews of tools you use.</p>
+                        <div class="step-links">
+                            <a href="https://dev.to/khanriyazi" target="_blank"><i class="fab fa-dev"></i> DEV
+                                Community</a>
+                            <a href="https://hashnode.com/@ali826" target="_blank"><i class="fas fa-blog"></i> Hashnode
+                                Blogging</a>
+                            <a href="https://medium.com/@rizwanrka826" target="_blank"><i class="fab fa-medium"></i>
+                                Medium</a>
+                        </div>
                     </div>
                 </div>
-
                 <div class="path-step">
-                    <h3><span class="step-number">2</span> Join Affiliate Programs</h3>
-                    <p>Sign up for reputable affiliate programs that align with your content and audience. Focus on
-                        products you genuinely use and recommend.</p>
-                    <div class="links">
-                        <a href="https://affiliate-program.amazon.com/" target="_blank"><i class="fab fa-amazon"></i>
-                            Amazon Affiliate Program</a>
-                        <a href="https://partner.ebay.com/campaign-promo-signup/eBay-Partner-Network.brand?execution=e2s1&"
-                            target="_blank"><i class="fab fa-ebay"></i> eBay Partner Network</a>
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Join Affiliate Programs</h3>
+                        <p>Sign up for reputable affiliate programs that align with your content and audience. Focus on
+                            products you genuinely use and recommend.</p>
+                        <div class="step-links">
+                            <a href="https://affiliate-program.amazon.com/" target="_blank"><i
+                                    class="fab fa-amazon"></i> Amazon Affiliate Program</a>
+                            <a href="https://partner.ebay.com/campaign-promo-signup/eBay-Partner-Network.brand?execution=e2s1&"
+                                target="_blank"><i class="fab fa-ebay"></i> eBay Partner Network</a>
+                        </div>
                     </div>
                 </div>
-
                 <div class="path-step">
-                    <h3><span class="step-number">3</span> Build Affiliate Tools with FastAPI</h3>
-                    <p>Create useful tools, APIs, and dashboards that add value to your audience while incorporating
-                        your affiliate links strategically.</p>
-                    <div class="links">
-                        <a href="https://fastapi.tiangolo.com/" target="_blank"><i class="fas fa-bolt"></i> FastAPI
-                            Official Docs</a>
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Build Affiliate Tools with FastAPI</h3>
+                        <p>Create useful tools, APIs, and dashboards that add value to your audience while incorporating
+                            your affiliate links strategically.</p>
+                        <div class="step-links">
+                            <a href="https://fastapi.tiangolo.com/" target="_blank"><i class="fas fa-bolt"></i> FastAPI
+                                Official Docs</a>
+                        </div>
                     </div>
                 </div>
-
                 <div class="path-step">
-                    <h3><span class="step-number">4</span> Grow Your Community</h3>
-                    <p>Engage with other developers, share your content, and learn from successful affiliate marketers
-                        in the tech space.</p>
-                    <div class="links">
-                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                        <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord Groups</a>
-                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Tech Twitter</a>
-                        <a href="https://reddit.com/r/Entrepreneur/" target="_blank"><i class="fab fa-reddit"></i>
-                            Reddit Entrepreneurs</a>
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Grow Your Community</h3>
+                        <p>Engage with other developers, share your content, and learn from successful affiliate
+                            marketers in the tech space.</p>
+                        <div class="step-links">
+                            <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord
+                                Groups</a>
+                            <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Tech
+                                Twitter</a>
+                            <a href="https://reddit.com/r/Entrepreneur/" target="_blank"><i class="fab fa-reddit"></i>
+                                Reddit Entrepreneurs</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="resources">
-            <h2><i class="fas fa-book"></i> Essential Resources</h2>
+    <section class="resources" id="resources">
+        <div class="container">
+            <div class="section-header">
+                <h2>Essential Resources</h2>
+                <p>Everything you need to start your affiliate marketing journey</p>
+            </div>
             <div class="resources-grid">
                 <div class="resource-card">
-                    <h4><i class="fas fa-code"></i> Development</h4>
-                    <div class="links">
+                    <h3><i class="fas fa-code"></i> Development</h3>
+                    <div class="resource-links">
                         <a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Official Docs</a>
                         <a href="https://developers.google.com/" target="_blank">Google Developers</a>
                     </div>
                 </div>
-
                 <div class="resource-card">
-                    <h4><i class="fas fa-pencil-alt"></i> Blogging Platforms</h4>
-                    <div class="links">
+                    <h3><i class="fas fa-pencil-alt"></i> Blogging Platforms</h3>
+                    <div class="resource-links">
                         <a href="https://dev.to/khanriyazi" target="_blank">DEV Community</a>
                         <a href="https://hashnode.com/@ali826" target="_blank">Hashnode Blogging</a>
                         <a href="https://medium.com/@rizwanrka826" target="_blank">Medium</a>
                     </div>
                 </div>
-
                 <div class="resource-card">
-                    <h4><i class="fas fa-dollar-sign"></i> Affiliate Programs</h4>
-                    <div class="links">
+                    <h3><i class="fas fa-dollar-sign"></i> Affiliate Programs</h3>
+                    <div class="resource-links">
                         <a href="https://affiliate-program.amazon.com/" target="_blank">Amazon Affiliate Program</a>
                         <a href="https://partner.ebay.com/campaign-promo-signup/eBay-Partner-Network.brand?execution=e2s1&"
                             target="_blank">eBay Partner Network</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="blogs">
-            <h2><i class="fas fa-blog"></i> Blogging Strategy</h2>
-            <div class="path-step">
-                <p>Developers grow by sharing knowledge. Start with free platforms or host your own blog. Write
-                    tutorials, case studies, and reviews with affiliate links.</p>
-                <p>Focus on creating high-quality, SEO-optimized content that solves real problems for developers. This
-                    builds trust and makes your affiliate recommendations more effective.</p>
-            </div>
-        </section>
-
-        <section id="fastapi">
-            <h2><i class="fas fa-bolt"></i> FastAPI for Affiliate Marketing</h2>
-            <div class="path-step">
-                <p>FastAPI lets you build high-performance APIs for tracking, analytics, or integrating affiliate
-                    dashboards. Use it to automate your workflow and scale your side hustle.</p>
-
-                <div class="api-demo">
-                    <h4>Example: API Endpoint for Affiliate Link Management</h4>
-                    <div class="code-snippet">
-                        <code style="color: #9cdcfe">
-from fastapi import FastAPI<br>
-from pydantic import BaseModel<br>
-<br>
-app = FastAPI()<br>
-<br>
-class AffiliateLink(BaseModel):<br>
-    &nbsp;&nbsp;name: str<br>
-    &nbsp;&nbsp;url: str<br>
-    &nbsp;&nbsp;clicks: int = 0<br>
-<br>
-links_db = []<br>
-<br>
-@app.post("/links/")<br>
-async def create_link(link: AffiliateLink):<br>
-    &nbsp;&nbsp;links_db.append(link)<br>
-    &nbsp;&nbsp;return {"message": "Link created", "id": len(links_db)-1}<br>
-<br>
-@app.get("/links/{link_id}")<br>
-async def redirect_link(link_id: int):<br>
-    &nbsp;&nbsp;link = links_db[link_id]<br>
-    &nbsp;&nbsp;link.clicks += 1<br>
-    &nbsp;&nbsp;return {"redirect": link.url}<br>
-                        </code>
-                    </div>
-                    <p>This simple API demonstrates how you can track clicks on your affiliate links. In a real
-                        application, you'd want to add authentication, a database, and more features.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="community">
-            <h2><i class="fas fa-users"></i> Join the Community</h2>
-            <div class="path-step">
-                <p>Connect with other developers, share your blogs, and exchange affiliate marketing strategies.
-                    Learning from others is key to accelerating your growth.</p>
-                <div class="links">
-                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-                    <a href="https://discord.com/" target="_blank"><i class="fab fa-discord"></i> Discord Groups</a>
-                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i> Tech Twitter</a>
-                    <a href="https://reddit.com/r/Entrepreneur/" target="_blank"><i class="fab fa-reddit"></i> Reddit
-                        Entrepreneurs</a>
-                </div>
-            </div>
-        </section>
-    </div>
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start your affiliate marketing journey today</h2>
+            <p>Join thousands of developers who are already earning passive income through affiliate marketing</p>
+            <button class="primary-button">Get Started For Free</button>
+        </div>
+    </section>
 
     <footer>
-        <p>Made with ❤️ for the Dev Community | © 2025 Rizwan Khan</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-dev"></i></a>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>AffiliateDev</h3>
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <div class="footer-links">
+                        <a href="#">Features</a>
+                        <a href="#">Pricing</a>
+                        <a href="#">Examples</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <div class="footer-links">
+                        <a href="#">Blog</a>
+                        <a href="#">Guides</a>
+                        <a href="#">API Docs</a>
+                    </div>
+                </div>
+                <div class="footer-column" id="community">
+                    <h3>Community</h3>
+                    <div class="footer-links">
+                        <a href="https://github.com/" target="_blank">GitHub</a>
+                        <a href="https://discord.com/" target="_blank">Discord</a>
+                        <a href="https://twitter.com/" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Made with ❤️ for the Dev Community | © 2025 Rizwan Khan</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Free Starter Guide Modal -->
-    <div id="guideModal" class="modal">
-        <div class="modal-content">
-            <span class="close-button">&times;</span>
-
-            <div class="guide-header">
-                <h2><i class="fas fa-graduation-cap"></i> Free Starter Guide</h2>
-                <p>Your roadmap from blogging to affiliate marketing success</p>
-            </div>
-
-            <div class="guide-section">
-                <h3>Phase 1: Foundation Building</h3>
-                <ul class="checklist">
-                    <li>Choose your niche (web development, data science, DevOps, etc.)</li>
-                    <li>Set up your blogging platform (Hashnode, DEV, Medium, or self-hosted)</li>
-                    <li>Create a content calendar with 10-12 topic ideas</li>
-                    <li>Write your first 3 pillar articles (comprehensive guides)</li>
-                    <li>Set up social media profiles focused on your niche</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Phase 2: Content Strategy</h3>
-                <ul class="checklist">
-                    <li>Identify products you use and can recommend authentically</li>
-                    <li>Learn basic SEO principles for technical content</li>
-                    <li>Create a mix of tutorial, review, and comparison content</li>
-                    <li>Develop a consistent publishing schedule (1-2 posts per week)</li>
-                    <li>Engage with comments and build an email list</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Phase 3: Affiliate Integration</h3>
-                <ul class="checklist">
-                    <li>Apply to affiliate programs (start with Amazon, eBay, and tech companies)</li>
-                    <li>Disclose affiliate relationships transparently to your audience</li>
-                    <li>Strategically place affiliate links in your content</li>
-                    <li>Create dedicated review pages for products you recommend</li>
-                    <li>Track your links and analyze what converts best</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Phase 4: Technical Enhancement with FastAPI</h3>
-                <ul class="checklist">
-                    <li>Build a link management system to track clicks</li>
-                    <li>Create API endpoints for your affiliate data</li>
-                    <li>Develop a dashboard to monitor your earnings</li>
-                    <li>Build useful tools for your audience that incorporate affiliate links</li>
-                    <li>Automate content sharing and reporting</li>
-                </ul>
-            </div>
-
-            <div class="guide-section">
-                <h3>Phase 5: Scaling Your Efforts</h3>
-                <ul class="checklist">
-                    <li>Repurpose content across different platforms</li>
-                    <li>Collaborate with other developers and content creators</li>
-                    <li>Experiment with different content formats (video, podcasts)</li>
-                    <li>Diversify your affiliate partnerships</li>
-                    <li>Analyze and double down on what works best</li>
-                </ul>
-            </div>
-
-            <div class="download-buttons">
-                <a href="#" class="download-btn" id="pdfDownload">
-                    <i class="fas fa-file-pdf"></i> Download as PDF
-                </a>
-                <a href="#" class="download-btn" id="htmlDownload">
-                    <i class="fas fa-file-code"></i> Save as HTML
-                </a>
-            </div>
-        </div>
-    </div>
-
     <script>
-        // Get the modal
-        const modal = document.getElementById("guideModal");
-        const ctaBtn = document.getElementById("ctaBtn");
-        const closeBtn = document.getElementsByClassName("close-button")[0];
-        const pdfDownload = document.getElementById("pdfDownload");
-        const htmlDownload = document.getElementById("htmlDownload");
-
-        // Open modal when CTA button is clicked
-        ctaBtn.addEventListener("click", function () {
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden"; // Prevent scrolling
-        });
-
-        // Close modal when X is clicked
-        closeBtn.addEventListener("click", function () {
-            modal.style.display = "none";
-            document.body.style.overflow = "auto"; // Enable scrolling
-        });
-
-        // Close modal when clicking outside content
-        window.addEventListener("click", function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-                document.body.style.overflow = "auto"; // Enable scrolling
-            }
-        });
-
-        // Simulate download functionality
-        pdfDownload.addEventListener("click", function (e) {
-            e.preventDefault();
-            alert("PDF download would start here. In a real implementation, this would download the actual PDF guide.");
-        });
-
-        htmlDownload.addEventListener("click", function (e) {
-            e.preventDefault();
-            alert("HTML version would be saved. In a real implementation, this would download the HTML file.");
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
+        // Simple smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
 
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
+                if (targetId === '#') return;
 
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // CTA button functionality
+        document.querySelectorAll('.primary-button, .cta-button').forEach(button => {
+            button.addEventListener('click', function () {
+                alert("🚀 Your affiliate marketing journey begins now! Check your email for the starter guide.");
             });
         });
     </script>
